@@ -9,7 +9,11 @@
     xmlns:sxt="http://www.sun.com/wsbpel/2.0/process/executable/SUNExtension/Trace" 
     xmlns:sxed="http://www.sun.com/wsbpel/2.0/process/executable/SUNExtension/Editor"
     xmlns:sxeh="http://www.sun.com/wsbpel/2.0/process/executable/SUNExtension/ErrorHandling">
-
-   <sequence>
+    <import namespace="http://j2ee.netbeans.org/wsdl/LunchService/lunchService" location="lunchService.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <partnerLinks>
+        <partnerLink name="PartnerLink1" xmlns:tns="http://j2ee.netbeans.org/wsdl/LunchService/lunchService" partnerLinkType="tns:lunchService" myRole="lunchServicePortTypeRole"/>
+    </partnerLinks>
+    <sequence>
    </sequence>
 </process>
+
