@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions name="divingAgencySharkBookingTable" targetNamespace="http://j2ee.netbeans.org/wsdl/DivingAgencyShark/divingAgencySharkBookingTable" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:ns="http://j2ee.netbeans.org/xsd/tableSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://j2ee.netbeans.org/wsdl/DivingAgencyShark/divingAgencySharkBookingTable" xmlns:plink="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:jdbc="http://schemas.sun.com/jbi/wsdl-extensions/jdbc/">
+  <types>
+    <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://schemas.sun.com/jbi/wsdl-extensions/jdbc/">
+            <xsd:import namespace="http://j2ee.netbeans.org/xsd/tableSchema" schemaLocation="BOOKING.xsd"/>
+	</xsd:schema>
+  </types>
+  <message name="inputMsg">
+    <part name="part" element="ns:BOOKING"/>
+  </message>
+  <message name="RetMsg">
+    <part name="part" type="xsd:int"/>
+  </message>
+  <message name="outputMsg">
+    <part name="part" element="ns:BOOKING"/>
+  </message>
+  <portType name="jdbcPortType">
+    <operation name="insert">
+      <input name="inputInsert" message="tns:inputMsg"/>
+      <output name="outputInsert" message="tns:RetMsg"/>
+    </operation>
+    <operation name="update">
+      <input name="inputUpdate" message="tns:inputMsg"/>
+      <output name="outputUpdate" message="tns:RetMsg"/>
+    </operation>
+    <operation name="delete">
+      <input name="inputDelete" message="tns:inputMsg"/>
+      <output name="outputDelete" message="tns:RetMsg"/>
+    </operation>
+    <operation name="find">
+      <input name="inputFind" message="tns:inputMsg"/>
+      <output name="outputFind" message="tns:outputMsg"/>
+    </operation>
+    <operation name="pollrecords">
+      <input name="inputPoll" message="tns:inputMsg"/>
+    </operation>
+  </portType>
+  <binding name="binding" type="tns:jdbcPortType">
+    <jdbc:binding xmlns:jdbc="http://schemas.sun.com/jbi/wsdl-extensions/jdbc/"/>
+    <operation name="insert">
+    <jdbc:operation xmlns:jdbc="http://schemas.sun.com/jbi/wsdl-extensions/jdbc/"/>
+      <input name="inputInsert">
+    <jdbc:input xmlns:jdbc="http://schemas.sun.com/jbi/wsdl-extensions/jdbc/" MarkColumnName="" MarkColumnValue="" MoveRowToTableName="" PKName="BOOKINGID" PollMilliSeconds="5000" PollingPostProcessing="MoveRow" TableName="BOOKING" Transaction="NOTransaction" numberOfRecords="" operationType="insert" paramOrder="STARTTIME,ENDTIME,INSTRUCTORNAME,ADRESS,PRICE,BOOKINGNAME,HOTELNAME,REQUESTDATE,NUMBEROFDIVERS" sql="insert into BOOKING (STARTTIME,ENDTIME,INSTRUCTORNAME,ADRESS,PRICE,BOOKINGNAME,HOTELNAME,REQUESTDATE,NUMBEROFDIVERS) values (?,?,?,?,?,?,?,?,?)"/>
+      </input>
+      <output name="outputInsert">
+    <jdbc:output xmlns:jdbc="http://schemas.sun.com/jbi/wsdl-extensions/jdbc/" returnPartName="part"/>
+      </output>
+    </operation>
+    <operation name="update">
+    <jdbc:operation xmlns:jdbc="http://schemas.sun.com/jbi/wsdl-extensions/jdbc/"/>
+      <input name="inputUpdate">
+    <jdbc:input xmlns:jdbc="http://schemas.sun.com/jbi/wsdl-extensions/jdbc/" MarkColumnName="" MarkColumnValue="" MoveRowToTableName="" PKName="BOOKINGID" PollMilliSeconds="5000" PollingPostProcessing="MoveRow" TableName="BOOKING" Transaction="NOTransaction" numberOfRecords="" operationType="update" paramOrder="BOOKINGID,STARTTIME,ENDTIME,INSTRUCTORNAME,ADRESS,PRICE,BOOKINGNAME,HOTELNAME,REQUESTDATE,NUMBEROFDIVERS" sql="update BOOKING set BOOKINGID  = ?,STARTTIME  = ?,ENDTIME  = ?,INSTRUCTORNAME  = ?,ADRESS  = ?,PRICE  = ?,BOOKINGNAME  = ?,HOTELNAME  = ?,REQUESTDATE  = ?,NUMBEROFDIVERS  = ?"/>
+      </input>
+      <output name="outputUpdate">
+    <jdbc:output xmlns:jdbc="http://schemas.sun.com/jbi/wsdl-extensions/jdbc/" returnPartName="part"/>
+      </output>
+    </operation>
+    <operation name="delete">
+    <jdbc:operation xmlns:jdbc="http://schemas.sun.com/jbi/wsdl-extensions/jdbc/"/>
+      <input name="inputDelete">
+    <jdbc:input xmlns:jdbc="http://schemas.sun.com/jbi/wsdl-extensions/jdbc/" MarkColumnName="" MarkColumnValue="" MoveRowToTableName="" PKName="BOOKINGID" PollMilliSeconds="5000" PollingPostProcessing="MoveRow" TableName="BOOKING" Transaction="NOTransaction" numberOfRecords="" operationType="delete" paramOrder="" sql="delete from BOOKING"/>
+      </input>
+      <output name="outputDelete">
+    <jdbc:output xmlns:jdbc="http://schemas.sun.com/jbi/wsdl-extensions/jdbc/" returnPartName="part"/>
+      </output>
+    </operation>
+    <operation name="find">
+    <jdbc:operation xmlns:jdbc="http://schemas.sun.com/jbi/wsdl-extensions/jdbc/"/>
+      <input name="inputFind">
+    <jdbc:input xmlns:jdbc="http://schemas.sun.com/jbi/wsdl-extensions/jdbc/" MarkColumnName="" MarkColumnValue="" MoveRowToTableName="" PKName="BOOKINGID" PollMilliSeconds="5000" PollingPostProcessing="MoveRow" TableName="BOOKING" Transaction="NOTransaction" numberOfRecords="" operationType="find" paramOrder="BOOKINGNAME,HOTELNAME,REQUESTDATE,NUMBEROFDIVERS" sql="select BOOKINGID,STARTTIME,ENDTIME,INSTRUCTORNAME,ADRESS,PRICE,BOOKINGNAME,HOTELNAME,REQUESTDATE,NUMBEROFDIVERS from BOOKING WHERE BOOKINGNAME IN (?) AND HOTELNAME IN (?) AND REQUESTDATE IN (?) AND NUMBEROFDIVERS IN (?)"/>
+      </input>
+      <output name="outputFind">
+    <jdbc:output xmlns:jdbc="http://schemas.sun.com/jbi/wsdl-extensions/jdbc/" returnPartName="part"/>
+      </output>
+    </operation>
+    <operation name="pollrecords">
+    <jdbc:operation xmlns:jdbc="http://schemas.sun.com/jbi/wsdl-extensions/jdbc/"/>
+      <input name="inputPoll">
+    <jdbc:input xmlns:jdbc="http://schemas.sun.com/jbi/wsdl-extensions/jdbc/" MarkColumnName="" MarkColumnValue="" MoveRowToTableName="" PKName="BOOKINGID" PollMilliSeconds="5000" PollingPostProcessing="Delete" TableName="BOOKING" Transaction="NOTransaction" numberOfRecords="" operationType="poll" paramOrder="" sql="select BOOKINGID,STARTTIME,ENDTIME,INSTRUCTORNAME,ADRESS,PRICE,BOOKINGNAME,HOTELNAME,REQUESTDATE,NUMBEROFDIVERS from BOOKING"/>
+      </input>
+    </operation>
+  </binding>
+  <service name="service">
+    <port name="port" binding="tns:binding">
+    <jdbc:address xmlns:jdbc="http://schemas.sun.com/jbi/wsdl-extensions/jdbc/" jndiName="jdbc/divingAgencySharkDB"/>
+    </port>
+  </service>
+    <plink:partnerLinkType xmlns:plink="http://docs.oasis-open.org/wsbpel/2.0/plnktype" name="jdbcpartner">
+        <plink:role name="jdbcPortTypeRole" portType="tns:jdbcPortType"/>
+    </plink:partnerLinkType>
+</definitions>
+
+
