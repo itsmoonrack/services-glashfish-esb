@@ -23,7 +23,7 @@
    </variables>
    <sequence>
       <receive name="getClientReservation" createInstance="yes" partnerLink="Client" operation="ClientSurveyOperation" xmlns:tns="http://j2ee.netbeans.org/wsdl/HotelReception/ClientSurvey" portType="tns:ClientSurveyPortType" variable="ClientSurveyOperationOut"/>
-      <assign name="assignDataFromClient">
+      <assign name="assignDataFromClientToProcess">
          <copy>
             <from>$ClientSurveyOperationIn.clientRequest/ns1:guestName</from>
             <to>$ScubaDivingRequestOperationIn.scubaDivingRequest/ns1:guestName</to>
@@ -62,7 +62,7 @@
          </copy>
       </assign>
       <invoke name="invokeProcessManager" partnerLink="ProcessManager" operation="ScubaDivingRequestOperation" xmlns:tns="http://j2ee.netbeans.org/wsdl/HotelReception/ScubaDivingRequest" portType="tns:ScubaDivingRequestPortType" inputVariable="ScubaDivingRequestOperationIn" outputVariable="ScubaDivingRequestOperationOut"/>
-      <assign name="assignDataFromProcess">
+      <assign name="assignDataFromProcessToClient">
          <copy>
             <from>$ScubaDivingRequestOperationOut.scubaDivingResponse/ns1:divingBookingID</from>
             <to>$ClientSurveyOperationOut.clientResponse/ns1:divingBookingID</to>
