@@ -84,7 +84,7 @@
         </xsd:sequence>
       </xsd:complexType>
     <xsd:element name="ScubaDivingRequest" type="tns:ScubaDivingRequest"/>
-    <xsd:element name="ScubaDivingResponse" type="tns:ScubaDivingBooking"/>
+    <xsd:element name="ScubaDivingBooking" type="tns:ScubaDivingBooking"/>
     <xsd:element name="LunchQuery" type="tns:LunchRequest"/>
     <xsd:element name="TaxiQuery" type="tns:TaxiRequest"/>
     <xsd:element name="TaxiResponse" type="tns:TaxiBooking"/>

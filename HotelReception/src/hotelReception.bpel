@@ -9,9 +9,12 @@
     xmlns:sxt="http://www.sun.com/wsbpel/2.0/process/executable/SUNExtension/Trace" 
     xmlns:sxed="http://www.sun.com/wsbpel/2.0/process/executable/SUNExtension/Editor"
     xmlns:sxeh="http://www.sun.com/wsbpel/2.0/process/executable/SUNExtension/ErrorHandling">
-
+   <import namespace="http://j2ee.netbeans.org/wsdl/HotelReception/ScubaDivingRequest" location="ScubaDivingRequest.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+   <partnerLinks>
+      <partnerLink name="ProcessManager" xmlns:tns="http://j2ee.netbeans.org/wsdl/HotelReception/ScubaDivingRequest" partnerLinkType="tns:ScubaDivingRequest" partnerRole="ScubaDivingRequestPortTypeRole"/>
+   </partnerLinks>
    <sequence>
-      <invoke name="Invoke1"/>
+      <receive name="GetClientReservation" createInstance="yes"/>
    </sequence>
 </process>
 
