@@ -11,5 +11,7 @@
     xmlns:sxeh="http://www.sun.com/wsbpel/2.0/process/executable/SUNExtension/ErrorHandling">
 
    <sequence>
+      <invoke name="Invoke1"/>
    </sequence>
 </process>
+
