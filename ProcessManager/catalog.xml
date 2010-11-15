@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
     <nextCatalog catalog="nbproject/private/cache/retriever/catalog.xml"/>
+    <system systemId="HotelReception/hotel.xsd" uri="nb-uri:HotelReception#src/hotel.xsd"/>
+    <system systemId="LunchService/lunch.xsd" uri="nb-uri:LunchService#src/lunch.xsd"/>
+    <system systemId="TaxiService/taxi.xsd" uri="nb-uri:TaxiService#src/taxi.xsd"/>
+    <system systemId="DivingBookingService/diving.xsd" uri="nb-uri:DivingBookingService#src/diving.xsd"/>
 </catalog>
+
+
 
