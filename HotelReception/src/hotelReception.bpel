@@ -8,7 +8,7 @@
     xmlns="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
     xmlns:sxt="http://www.sun.com/wsbpel/2.0/process/executable/SUNExtension/Trace" 
     xmlns:sxed="http://www.sun.com/wsbpel/2.0/process/executable/SUNExtension/Editor"
-    xmlns:sxeh="http://www.sun.com/wsbpel/2.0/process/executable/SUNExtension/ErrorHandling" xmlns:sxed2="http://www.sun.com/wsbpel/2.0/process/executable/SUNExtension/Editor2" xmlns:ns0="http://xml.netbeans.org/schema/Exchanges">
+    xmlns:sxeh="http://www.sun.com/wsbpel/2.0/process/executable/SUNExtension/ErrorHandling" xmlns:sxed2="http://www.sun.com/wsbpel/2.0/process/executable/SUNExtension/Editor2" xmlns:ns0="http://xml.netbeans.org/schema/Exchanges" xmlns:ns1="http://xml.netbeans.org/schema/hotel">
    <import namespace="http://j2ee.netbeans.org/wsdl/HotelReception/ScubaDivingRequest" location="ScubaDivingRequest.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
    <import namespace="http://j2ee.netbeans.org/wsdl/HotelReception/ClientSurvey" location="ClientSurvey.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
    <partnerLinks>
@@ -16,11 +16,52 @@
       <partnerLink name="ProcessManager" xmlns:tns="http://j2ee.netbeans.org/wsdl/HotelReception/ScubaDivingRequest" partnerLinkType="tns:ScubaDivingRequest" partnerRole="ScubaDivingRequestPortTypeRole"/>
    </partnerLinks>
    <variables>
+      <variable name="ScubaDivingRequestOperationOut" xmlns:tns="http://j2ee.netbeans.org/wsdl/HotelReception/ScubaDivingRequest" messageType="tns:ScubaDivingRequestOperationResponse"/>
+      <variable name="ScubaDivingRequestOperationIn" xmlns:tns="http://j2ee.netbeans.org/wsdl/HotelReception/ScubaDivingRequest" messageType="tns:ScubaDivingRequestOperationRequest"/>
+      <variable name="ClientSurveyOperationOut" xmlns:tns="http://j2ee.netbeans.org/wsdl/HotelReception/ClientSurvey" messageType="tns:ClientSurveyOperationRequest"/>
       <variable name="ClientSurveyOperationIn" xmlns:tns="http://j2ee.netbeans.org/wsdl/HotelReception/ClientSurvey" messageType="tns:ClientSurveyOperationRequest"/>
    </variables>
    <sequence>
-      <receive name="GetClientReservation" createInstance="yes" partnerLink="Client" operation="ClientSurveyOperation" xmlns:tns="http://j2ee.netbeans.org/wsdl/HotelReception/ClientSurvey" portType="tns:ClientSurveyPortType" variable="ClientSurveyOperationIn"/>
-      <assign name="assignData"></assign>
+      <receive name="getClientReservation" createInstance="yes" partnerLink="Client" operation="ClientSurveyOperation" xmlns:tns="http://j2ee.netbeans.org/wsdl/HotelReception/ClientSurvey" portType="tns:ClientSurveyPortType" variable="ClientSurveyOperationOut"/>
+      <assign name="assignData">
+         <copy>
+            <from>$ClientSurveyOperationIn.clientRequest/ns1:guestName</from>
+            <to>$ScubaDivingRequestOperationIn.scubaDivingRequest/ns1:guestName</to>
+         </copy>
+         <copy>
+            <from>$ClientSurveyOperationIn.clientRequest/ns1:roomNumber</from>
+            <to>$ScubaDivingRequestOperationIn.scubaDivingRequest/ns1:roomNumber</to>
+         </copy>
+         <copy>
+            <from>$ClientSurveyOperationIn.clientRequest/ns1:requestDate</from>
+            <to>$ScubaDivingRequestOperationIn.scubaDivingRequest/ns1:requestDate</to>
+         </copy>
+         <copy>
+            <from>$ClientSurveyOperationIn.clientRequest/ns1:numberOfDivers</from>
+            <to>$ScubaDivingRequestOperationIn.scubaDivingRequest/ns1:numberOfDivers</to>
+         </copy>
+         <copy>
+            <from>$ClientSurveyOperationIn.clientRequest/ns1:lunchInclued</from>
+            <to>$ScubaDivingRequestOperationIn.scubaDivingRequest/ns1:lunchInclued</to>
+         </copy>
+         <copy>
+            <from>$ClientSurveyOperationIn.clientRequest/ns1:cavesInterest</from>
+            <to>$ScubaDivingRequestOperationIn.scubaDivingRequest/ns1:cavesInterest</to>
+         </copy>
+         <copy>
+            <from>$ClientSurveyOperationIn.clientRequest/ns1:dolphinsInterest</from>
+            <to>$ScubaDivingRequestOperationIn.scubaDivingRequest/ns1:dolphinsInterest</to>
+         </copy>
+         <copy>
+            <from>$ClientSurveyOperationIn.clientRequest/ns1:sharksInterest</from>
+            <to>$ScubaDivingRequestOperationIn.scubaDivingRequest/ns1:sharksInterest</to>
+         </copy>
+         <copy>
+            <from>$ClientSurveyOperationIn.clientRequest/ns1:wrecksInterest</from>
+            <to>$ScubaDivingRequestOperationIn.scubaDivingRequest/ns1:wrecksInterest</to>
+         </copy>
+      </assign>
+      <invoke name="invokeProcessManager" partnerLink="ProcessManager" operation="ScubaDivingRequestOperation" xmlns:tns="http://j2ee.netbeans.org/wsdl/HotelReception/ScubaDivingRequest" portType="tns:ScubaDivingRequestPortType" inputVariable="ScubaDivingRequestOperationIn" outputVariable="ScubaDivingRequestOperationOut"/>
    </sequence>
 </process>
 

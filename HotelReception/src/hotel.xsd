@@ -4,8 +4,8 @@
     targetNamespace="http://xml.netbeans.org/schema/hotel"
     xmlns:tns="http://xml.netbeans.org/schema/hotel"
     elementFormDefault="qualified">
-    <xsd:element name="ScubaDivingRequest1" type="tns:ScubaDivingRequest" xmlns:tns="http://xml.netbeans.org/schema/Exchanges"/>
-    <xsd:element name="ScubaDivingBooking1" type="tns:ScubaDivingBooking" xmlns:tns="http://xml.netbeans.org/schema/Exchanges"/>
+    <xsd:element name="ScubaDivingRequest" type="tns:ScubaDivingRequest" xmlns:tns="http://xml.netbeans.org/schema/Exchanges"/>
+    <xsd:element name="ScubaDivingBooking" type="tns:ScubaDivingBooking" xmlns:tns="http://xml.netbeans.org/schema/Exchanges"/>
     <xsd:complexType name="ScubaDivingRequest">
         <xsd:sequence>
             <xsd:element name="guestName" type="xsd:string"/>
@@ -17,7 +17,6 @@
             <xsd:element name="dolphinsInterest" type="xsd:string"/>
             <xsd:element name="sharksInterest" type="xsd:string"/>
             <xsd:element name="wrecksInterest" type="xsd:string"/>
-            <xsd:element name="hotelName" type="xsd:string"></xsd:element>
         </xsd:sequence>
     </xsd:complexType>
     <xsd:complexType name="ScubaDivingBooking">

@@ -36,9 +36,6 @@
             <xsd:element name="totalPrice" type="xsd:double"/>
         </xsd:sequence>
     </xsd:complexType>
-    <xsd:element name="ScubaDivingRequest" type="tns:ScubaDivingRequest"/>
-
-    <xsd:element name="ScubaDivingBooking" type="tns:ScubaDivingBooking"/>
 
 
 
@@ -48,6 +45,7 @@
 
 
 </xsd:schema>
+
 
 
 
