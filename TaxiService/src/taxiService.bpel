@@ -8,7 +8,7 @@
     xmlns="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
     xmlns:sxt="http://www.sun.com/wsbpel/2.0/process/executable/SUNExtension/Trace" 
     xmlns:sxed="http://www.sun.com/wsbpel/2.0/process/executable/SUNExtension/Editor"
-    xmlns:sxeh="http://www.sun.com/wsbpel/2.0/process/executable/SUNExtension/ErrorHandling">
+    xmlns:sxeh="http://www.sun.com/wsbpel/2.0/process/executable/SUNExtension/ErrorHandling" xmlns:sxed2="http://www.sun.com/wsbpel/2.0/process/executable/SUNExtension/Editor2" xmlns:ns0="http://xml.netbeans.org/schema/taxi" xmlns:ns1="http://j2ee.netbeans.org/xsd/tableSchema">
     <import namespace="http://j2ee.netbeans.org/wsdl/TaxiService/TaxiRequest" location="TaxiRequest.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
     <import namespace="http://j2ee.netbeans.org/wsdl/TaxiService/TaxiService" location="TaxiService.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
     <partnerLinks>
@@ -16,11 +16,47 @@
         <partnerLink name="ProcessManager" xmlns:tns="http://j2ee.netbeans.org/wsdl/TaxiService/TaxiRequest" partnerLinkType="tns:TaxiRequest" myRole="TaxiRequestPortTypeRole"/>
     </partnerLinks>
     <variables>
+        <variable name="InsertOut" xmlns:tns="http://j2ee.netbeans.org/wsdl/TaxiService/TaxiService" messageType="tns:RetMsg"/>
+        <variable name="InsertIn" xmlns:tns="http://j2ee.netbeans.org/wsdl/TaxiService/TaxiService" messageType="tns:inputMsg"/>
         <variable name="TaxiRequestOperationIn" xmlns:tns="http://j2ee.netbeans.org/wsdl/TaxiService/TaxiRequest" messageType="tns:TaxiRequestOperationRequest"/>
     </variables>
     <sequence>
         <receive name="receiveRequest" createInstance="yes" partnerLink="ProcessManager" operation="TaxiRequestOperation" xmlns:tns="http://j2ee.netbeans.org/wsdl/TaxiService/TaxiRequest" portType="tns:TaxiRequestPortType" variable="TaxiRequestOperationIn"/>
-        <assign name="assignForDatabase"/>
+        <assign name="assignForDatabase">
+            <copy>
+                <from>$TaxiRequestOperationIn.taxiRequest/ns0:numberOfTravelers</from>
+                <to>$InsertIn.part/ns1:TAXI_REQUEST_Record/ns1:NUMBEROFTRAVELERES</to>
+            </copy>
+            <copy>
+                <from>$TaxiRequestOperationIn.taxiRequest/ns0:hotelName</from>
+                <to>$InsertIn.part/ns1:TAXI_REQUEST_Record/ns1:HOTELNAME</to>
+            </copy>
+            <copy>
+                <from>$TaxiRequestOperationIn.taxiRequest/ns0:destinationAddress</from>
+                <to>$InsertIn.part/ns1:TAXI_REQUEST_Record/ns1:DESTINATIONADRESS</to>
+            </copy>
+            <copy>
+                <from>$TaxiRequestOperationIn.taxiRequest/ns0:numberOfTravelers</from>
+                <to>$InsertIn.part/ns1:TAXI_REQUEST_Record/ns1:NUMBEROFTRAVELERS</to>
+            </copy>
+            <copy>
+                <from>$TaxiRequestOperationIn.taxiRequest/ns0:destinationAddress</from>
+                <to>$InsertIn.part/ns1:TAXI_REQUEST_Record/ns1:DESTINATIONADDRESS</to>
+            </copy>
+            <copy>
+                <from>$TaxiRequestOperationIn.taxiRequest/ns0:departFromHotelTime</from>
+                <to>$InsertIn.part/ns1:TAXI_REQUEST_Record/ns1:DEPARTFROMHOTELTIME</to>
+            </copy>
+            <copy>
+                <from>$TaxiRequestOperationIn.taxiRequest/ns0:arriveAtHotelTime</from>
+                <to>$InsertIn.part/ns1:TAXI_REQUEST_Record/ns1:ARRIVEATHOTELTIME</to>
+            </copy>
+            <copy>
+                <from>30</from>
+                <to>$InsertIn.part/ns1:TAXI_REQUEST_Record/ns1:PRICE</to>
+            </copy>
+        </assign>
+        <invoke name="InvokeForInsert" partnerLink="TaxiDatabase" operation="insert" xmlns:tns="http://j2ee.netbeans.org/wsdl/TaxiService/TaxiService" portType="tns:jdbcPortType" inputVariable="InsertIn" outputVariable="InsertOut"/>
     </sequence>
 </process>
 
