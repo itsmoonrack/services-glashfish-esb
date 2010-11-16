@@ -1,15 +1,2 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?><catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
-
-    <system systemId="ProcessManager/ProcessManager.wsdl" uri="HotelReception/src/_references/_projects/ProcessManager/src/ProcessManager.wsdl"/>
-    <system systemId="Hotel.xsd" uri="HotelReception/src/_references/_projects/ProcessManager/src/Hotel.xsd"/>
-    <system systemId="ProcessManager/Hotel.xsd" uri="HotelReception/src/_references/_projects/ProcessManager/src/Hotel.xsd"/>
-
-
-    <system systemId="SharkDivingAgency/SharkDivingAgency.wsdl" uri="ProcessManager/src/_references/_projects/SharkDivingAgency/src/SharkDivingAgency.wsdl"/>
-    <system systemId="Diving.xsd" uri="ProcessManager/src/_references/_projects/SharkDivingAgency/src/Diving.xsd"/>
-    <system systemId="DolphinDivingAgency/DolphinDivingAgency.wsdl" uri="ProcessManager/src/_references/_projects/DolphinDivingAgency/src/DolphinDivingAgency.wsdl"/>
-    <system systemId="WreckAndCaveDivingAgency/WreckAndCaveDivingAgency.wsdl" uri="ProcessManager/src/_references/_projects/WreckAndCaveDivingAgency/src/WreckAndCaveDivingAgency.wsdl"/>
-
-
-
 </catalog>

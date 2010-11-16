@@ -22,10 +22,11 @@
         <assign name="Assign1">
             <copy>
                 <from>'WrecksAndCave'</from>
-                <to>$WreckAndCaveBooking.part1/ns0:divingAgencyName</to>
+                <to>$WreckAndCaveBooking.divingBooking/ns0:divingAgencyName</to>
             </copy>
         </assign>
         <reply name="Reply1" partnerLink="PartnerLink1" operation="WreckAndCaveAgencyOperation" xmlns:tns="http://j2ee.netbeans.org/wsdl/WreckAndCaveDivingAgency/WreckAndCaveAgency" portType="tns:WreckAndCaveAgencyPortType" variable="WreckAndCaveBooking"/>
     </sequence>
 </process>
+
 

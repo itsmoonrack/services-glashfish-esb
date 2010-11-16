@@ -44,7 +44,7 @@
                             <to>$InsertIn.part/ns1:LUNCH_RESERVATION_Record/ns1:NUMBER_OF_LUNCHES</to>
                         </copy>
                         <copy>
-                            <from>$LunchServiceOperationIn.lunchBooking/ns0:lunchDate</from>
+                            <from>'2010-11-16'</from>
                             <to>$InsertIn.part/ns1:LUNCH_RESERVATION_Record/ns1:LUNCH_DATE</to>
                         </copy>
                     </assign>
@@ -54,6 +54,7 @@
         </pick>
     </sequence>
 </process>
+
 
 
 

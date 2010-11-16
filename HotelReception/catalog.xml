@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
     <nextCatalog catalog="nbproject/private/cache/retriever/catalog.xml"/>
-    <system systemId="ProcessManager/ProcessManager.wsdl" uri="nb-uri:ProcessManager#src/ProcessManager.wsdl"/>
     <system systemId="ProcessManager/Hotel.xsd" uri="nb-uri:ProcessManager#src/Hotel.xsd"/>
+    <system systemId="ProcessManager/ProcessManager.wsdl" uri="nb-uri:ProcessManager#src/ProcessManager.wsdl"/>
 </catalog>
+
 
 
 

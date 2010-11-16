@@ -9,10 +9,10 @@
         </xsd:schema>
     </types>
     <message name="SharkDivingAgencyOperationRequest">
-        <part name="part1" type="ns:DivingRequest"/>
+        <part name="divingRequest" type="ns:DivingRequest"/>
     </message>
     <message name="SharkDivingAgencyOperationResponse">
-        <part name="part1" type="ns:DivingBooking"/>
+        <part name="divingBooking" type="ns:DivingBooking"/>
     </message>
     <portType name="SharkDivingAgencyPortType">
         <operation name="SharkDivingAgencyOperation">
@@ -27,5 +27,6 @@ A partner link type characterizes the conversational relationship between two se
         <plnk:role name="SharkDivingAgencyPortTypeRole" portType="tns:SharkDivingAgencyPortType"/>
     </plnk:partnerLinkType>
 </definitions>
+
 
 

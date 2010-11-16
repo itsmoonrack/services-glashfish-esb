@@ -5,7 +5,7 @@
         <lun:guestName>Frédéric Dumont</lun:guestName>
         <lun:roomNumber>3</lun:roomNumber>
         <lun:numberOfLunches>3</lun:numberOfLunches>
-        <lun:lunchDate>2010-12-20</lun:lunchDate>
+        <lun:lunchDate>2001-10-26</lun:lunchDate>
       </LunchBooking>
     </lun:lunchServiceOperation>
   </soapenv:Body>
