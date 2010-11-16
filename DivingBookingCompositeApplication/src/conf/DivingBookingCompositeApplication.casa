@@ -29,6 +29,8 @@
                 </port>
             </ports>
         </binding-component-service-unit>
+    
+    
     </service-units>
     <connections>
         <connection consumer="endpoint2" provider="endpoint3" state="unchanged"/>
@@ -52,4 +54,3 @@
         <region name="External Modules" width="200"/>
     </regions>
 </casa>
-

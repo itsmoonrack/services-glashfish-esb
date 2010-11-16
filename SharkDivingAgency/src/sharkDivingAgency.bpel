@@ -8,48 +8,24 @@
     xmlns="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
     xmlns:sxt="http://www.sun.com/wsbpel/2.0/process/executable/SUNExtension/Trace" 
     xmlns:sxed="http://www.sun.com/wsbpel/2.0/process/executable/SUNExtension/Editor"
-    xmlns:sxeh="http://www.sun.com/wsbpel/2.0/process/executable/SUNExtension/ErrorHandling" xmlns:sxed2="http://www.sun.com/wsbpel/2.0/process/executable/SUNExtension/Editor2" xmlns:ns0="http://xml.netbeans.org/schema/diving" xmlns:sxxf="http://www.sun.com/wsbpel/2.0/process/executable/SUNExtension/XPathFunctions">
-    <import namespace="http://j2ee.netbeans.org/wsdl/DivingBookingService/DivingBookingService" location="DivingBookingService.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    xmlns:sxeh="http://www.sun.com/wsbpel/2.0/process/executable/SUNExtension/ErrorHandling" xmlns:sxed2="http://www.sun.com/wsbpel/2.0/process/executable/SUNExtension/Editor2" xmlns:ns0="http://xml.netbeans.org/schema/diving">
+    <import namespace="http://j2ee.netbeans.org/wsdl/SharkDivingAgency/SharkDivingAgency" location="SharkDivingAgency.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
     <partnerLinks>
-        <partnerLink name="Client" xmlns:tns="http://j2ee.netbeans.org/wsdl/DivingBookingService/DivingBookingService" partnerLinkType="tns:DivingBookingService" myRole="DivingBookingServicePortTypeRole"/>
+        <partnerLink name="PartnerLink1" xmlns:tns="http://j2ee.netbeans.org/wsdl/SharkDivingAgency/SharkDivingAgency" partnerLinkType="tns:SharkDivingAgency" myRole="SharkDivingAgencyPortTypeRole"/>
     </partnerLinks>
     <variables>
-        <variable name="DivingBooking" xmlns:tns="http://j2ee.netbeans.org/wsdl/DivingBookingService/DivingBookingService" messageType="tns:DivingBookingServiceOperationResponse"/>
-        <variable name="DivingRequest" xmlns:tns="http://j2ee.netbeans.org/wsdl/DivingBookingService/DivingBookingService" messageType="tns:DivingBookingServiceOperationRequest"/>
+        <variable name="SharkDivingBooking" xmlns:tns="http://j2ee.netbeans.org/wsdl/SharkDivingAgency/SharkDivingAgency" messageType="tns:SharkDivingAgencyOperationResponse"/>
+        <variable name="SharkDivingRequest" xmlns:tns="http://j2ee.netbeans.org/wsdl/SharkDivingAgency/SharkDivingAgency" messageType="tns:SharkDivingAgencyOperationRequest"/>
     </variables>
     <sequence>
-        <receive name="getRequest" createInstance="yes" partnerLink="Client" operation="DivingBookingServiceOperation" xmlns:tns="http://j2ee.netbeans.org/wsdl/DivingBookingService/DivingBookingService" portType="tns:DivingBookingServicePortType" variable="DivingRequest"/>
+        <receive name="Receive1" createInstance="yes" partnerLink="PartnerLink1" operation="SharkDivingAgencyOperation" xmlns:tns="http://j2ee.netbeans.org/wsdl/SharkDivingAgency/SharkDivingAgency" portType="tns:SharkDivingAgencyPortType" variable="SharkDivingRequest"/>
         <assign name="Assign1">
             <copy>
-                <from>number('10')</from>
-                <to>$DivingBooking.divingBooking/ns0:divingBookingID</to>
-            </copy>
-            <copy>
-                <from>sxxf:current-dateTime()</from>
-                <to>$DivingBooking.divingBooking/ns0:endTime</to>
-            </copy>
-            <copy>
-                <from>'Sylvain'</from>
-                <to>$DivingBooking.divingBooking/ns0:instructorName</to>
-            </copy>
-            <copy>
-                <from>sxxf:current-dateTime()</from>
-                <to>$DivingBooking.divingBooking/ns0:startTime</to>
-            </copy>
-            <copy>
-                <from>'Logement N301'</from>
-                <to>$DivingBooking.divingBooking/ns0:address</to>
-            </copy>
-            <copy>
-                <from>number('30')</from>
-                <to>$DivingBooking.divingBooking/ns0:price</to>
-            </copy>
-            <copy>
-                <from>'SharkDivingAgency'</from>
-                <to>$DivingBooking.divingBooking/ns0:divingAgencyName</to>
+                <from>'Sharks'</from>
+                <to>$SharkDivingBooking.part1/ns0:divingAgencyName</to>
             </copy>
         </assign>
-        <reply name="bookingReply" partnerLink="Client" operation="DivingBookingServiceOperation" xmlns:tns="http://j2ee.netbeans.org/wsdl/DivingBookingService/DivingBookingService" portType="tns:DivingBookingServicePortType" variable="DivingBooking"/>
+        <reply name="Reply1" partnerLink="PartnerLink1" operation="SharkDivingAgencyOperation" xmlns:tns="http://j2ee.netbeans.org/wsdl/SharkDivingAgency/SharkDivingAgency" portType="tns:SharkDivingAgencyPortType" variable="SharkDivingBooking"/>
     </sequence>
 </process>
 

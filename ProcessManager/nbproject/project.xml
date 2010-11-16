@@ -16,7 +16,7 @@
                 <id>dist_se</id>
             </reference>
             <reference>
-                <foreign-project>LunchService</foreign-project>
+                <foreign-project>HotelReception</foreign-project>
                 <artifact-type>jar</artifact-type>
                 <script>build.xml</script>
                 <target>dist_se</target>
@@ -25,14 +25,6 @@
             </reference>
             <reference>
                 <foreign-project>SharkDivingAgency</foreign-project>
-                <artifact-type>jar</artifact-type>
-                <script>build.xml</script>
-                <target>dist_se</target>
-                <clean-target>clean</clean-target>
-                <id>dist_se</id>
-            </reference>
-            <reference>
-                <foreign-project>TaxiService</foreign-project>
                 <artifact-type>jar</artifact-type>
                 <script>build.xml</script>
                 <target>dist_se</target>

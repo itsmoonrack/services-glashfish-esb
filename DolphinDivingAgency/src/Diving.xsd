@@ -4,8 +4,8 @@
     targetNamespace="http://xml.netbeans.org/schema/diving"
     xmlns:tns="http://xml.netbeans.org/schema/diving"
     elementFormDefault="qualified">
-    <xsd:element name="DivingRequest" type="tns:DivingRequest" xmlns:tns="http://xml.netbeans.org/schema/Exchanges"/>
-    <xsd:element name="DivingBooking" type="tns:DivingBooking" xmlns:tns="http://xml.netbeans.org/schema/Exchanges"/>
+    <xsd:element name="DivingRequest" type="tns:DivingRequest" xmlns:tns="http://xml.netbeans.org/schema/diving"/>
+    <xsd:element name="DivingBooking" type="tns:DivingBooking" xmlns:tns="http://xml.netbeans.org/schema/diving"/>
     <xsd:complexType name="DivingRequest">
          <xsd:sequence>
              <xsd:element name="BookingName" type="xsd:string"/>

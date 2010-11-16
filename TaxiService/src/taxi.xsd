@@ -4,8 +4,8 @@
     targetNamespace="http://xml.netbeans.org/schema/taxi"
     xmlns:tns="http://xml.netbeans.org/schema/taxi"
     elementFormDefault="qualified">
-    <xsd:element name="TaxiRequest1" type="tns:TaxiRequest" xmlns:tns="http://xml.netbeans.org/schema/Exchanges"/>
-    <xsd:element name="TaxiBooking1" type="tns:TaxiBooking" xmlns:tns="http://xml.netbeans.org/schema/Exchanges"/>
+    <xsd:element name="TaxiRequest" type="tns:TaxiRequest" xmlns:tns="http://xml.netbeans.org/schema/taxi"/>
+    <xsd:element name="TaxiBooking" type="tns:TaxiBooking" xmlns:tns="http://xml.netbeans.org/schema/taxi"/>
     <xsd:complexType name="TaxiRequest">
     <xsd:sequence>
          <xsd:element name="departFromHotelTime" type="xsd:dateTime"/>
@@ -25,3 +25,4 @@
         </xsd:sequence>
     </xsd:complexType>
 </xsd:schema>
+

@@ -101,7 +101,7 @@
         <!-- You can override this target in the ../build.xml file. -->
     </target>
     <target name="deps-jar-dist" depends="init" unless="${no.dependencies}">
-        <ant target="dist_se" inheritall="false" antfile="${project.DivingBookingService}/build.xml"/>
+        
     </target>
     <target name="do-dist" depends="init,pre-dist">
         <mkdir dir="${build.dir}"/>
@@ -132,7 +132,7 @@
         <!-- You can override this target in the ../build.xml file. -->
     </target>
     <target name="deps-clean" depends="init" unless="${no.dependencies}">
-        <ant target="clean" inheritall="false" antfile="${project.DivingBookingService}/build.xml"/>
+        
     </target>
     <target name="do-clean" depends="init,pre-clean">
         <delete dir="${build.dir}"/>
