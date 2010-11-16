@@ -2,15 +2,14 @@
 <definitions name="lunchService" targetNamespace="http://j2ee.netbeans.org/wsdl/LunchService/lunchService"
     xmlns="http://schemas.xmlsoap.org/wsdl/"
     xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
-    xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://j2ee.netbeans.org/wsdl/LunchService/lunchService" xmlns:ns="http://xml.netbeans.org/schema/Exchanges" xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns0="http://xml.netbeans.org/schema/lunch">
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://j2ee.netbeans.org/wsdl/LunchService/lunchService" xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns0="http://xml.netbeans.org/schema/Lunch">
     <types>
         <xsd:schema targetNamespace="http://j2ee.netbeans.org/wsdl/LunchService/lunchService">
-            <xsd:import namespace="http://xml.netbeans.org/schema/Exchanges" schemaLocation="ProcessManager/messagesExchange.xsd"/>
-            <xsd:import namespace="http://xml.netbeans.org/schema/lunch" schemaLocation="lunchService.xsd"/>
+            <xsd:import namespace="http://xml.netbeans.org/schema/Lunch" schemaLocation="Lunch.xsd"/>
         </xsd:schema>
     </types>
     <message name="lunchServiceOperationRequest">
-        <part name="part1" type="ns0:LunchRequest"/>
+        <part name="LunchBooking" type="ns0:LunchRequest"/>
     </message>
     <message name="lunchServiceOperationResponse"/>
     <portType name="lunchServicePortType">
@@ -43,6 +42,8 @@ A partner link type characterizes the conversational relationship between two se
         <plnk:role name="lunchServicePortTypeRole" portType="tns:lunchServicePortType"/>
     </plnk:partnerLinkType>
 </definitions>
+
+
 
 
 

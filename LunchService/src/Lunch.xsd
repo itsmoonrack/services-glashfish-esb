@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    targetNamespace="http://xml.netbeans.org/schema/Lunch"
+    xmlns:tns="http://xml.netbeans.org/schema/Lunch"
+    elementFormDefault="qualified">
+    <xsd:element name="lunchRequest" type="tns:LunchRequest" xmlns:tns="http://xml.netbeans.org/schema/Lunch"/>
+    <xsd:complexType name="LunchRequest">
+         <xsd:sequence>
+            <xsd:element name="guestName" type="xsd:string"/>
+            <xsd:element name="roomNumber" type="xsd:int"/>
+            <xsd:element name="numberOfLunches" type="xsd:int"/>
+            <xsd:element name="lunchDate" type="xsd:date"/>
+        </xsd:sequence>
+    </xsd:complexType>
+</xsd:schema>
+

@@ -47,7 +47,7 @@ made subject to such option by the copyright holder.
 <casa xmlns="http://java.sun.com/xml/ns/casa" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.0" xsi:schemaLocation="http://java.sun.com/xml/ns/casa ./casa.xsd">
     <endpoints/>
     <service-units>
-        <service-engine-service-unit artifacts-zip="LunchService.jar" component-name="sun-bpel-engine" defined="false" description="some description" internal="true" name="LunchService" unit-name="LunchService" unknown="false" x="144" y="99"/>
+        
     </service-units>
     <connections/>
     <porttypes/>
@@ -59,4 +59,3 @@ made subject to such option by the copyright holder.
         <region name="External Modules" width="200"/>
     </regions>
 </casa>
-

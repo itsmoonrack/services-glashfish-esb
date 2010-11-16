@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<process
+    name="lunchService"
+    targetNamespace="http://enterprise.netbeans.org/bpel/LunchService/Lunch"
+    xmlns:tns="http://enterprise.netbeans.org/bpel/LunchService/Lunch"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+    xmlns:sxt="http://www.sun.com/wsbpel/2.0/process/executable/SUNExtension/Trace" 
+    xmlns:sxed="http://www.sun.com/wsbpel/2.0/process/executable/SUNExtension/Editor"
+    xmlns:sxeh="http://www.sun.com/wsbpel/2.0/process/executable/SUNExtension/ErrorHandling" xmlns:sxed2="http://www.sun.com/wsbpel/2.0/process/executable/SUNExtension/Editor2" xmlns:ns0="http://xml.netbeans.org/schema/Lunch" xmlns:ns1="http://j2ee.netbeans.org/xsd/tableSchema">
+    <import namespace="http://j2ee.netbeans.org/wsdl/LunchService/lunchService" location="LunchReservation.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <import namespace="http://j2ee.netbeans.org/wsdl/LunchService/lunchDatabase" location="JavaDBLunchTable.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <import namespace="http://enterprise.netbeans.org/bpel/lunchServiceWrapper" location="lunchServiceWrapper.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <partnerLinks>
+        <partnerLink name="PartnerLink1" xmlns:tns="http://j2ee.netbeans.org/wsdl/LunchService/lunchDatabase" partnerLinkType="tns:jdbcpartner" partnerRole="jdbcPortTypeRole"/>
+        <partnerLink name="PartnerLinkLunchService" xmlns:tns="http://enterprise.netbeans.org/bpel/lunchServiceWrapper" partnerLinkType="tns:lunchServiceLinkType" myRole="lunchServiceRole"/>
+    </partnerLinks>
+    <variables>
+        <variable name="InsertOut" xmlns:tns="http://j2ee.netbeans.org/wsdl/LunchService/lunchDatabase" messageType="tns:RetMsg"/>
+        <variable name="InsertIn" xmlns:tns="http://j2ee.netbeans.org/wsdl/LunchService/lunchDatabase" messageType="tns:inputMsg"/>
+        <variable name="LunchServiceOperationIn" xmlns:tns="http://j2ee.netbeans.org/wsdl/LunchService/lunchService" messageType="tns:lunchServiceOperationRequest"/>
+    </variables>
+    <sequence>
+        <pick name="Pick1" createInstance="yes">
+            <onMessage partnerLink="PartnerLinkLunchService" operation="lunchServiceOperation" xmlns:tns="http://j2ee.netbeans.org/wsdl/LunchService/lunchService" portType="tns:lunchServicePortType" variable="LunchServiceOperationIn">
+                <sequence name="Sequence1">
+                    <assign name="mapData">
+                        <sxt:trace>
+                            <sxt:log level="info" location="onComplete">
+                                <from variable="InsertOut" part="part"/>
+                            </sxt:log>
+                        </sxt:trace>
+                        <copy>
+                            <from>$LunchServiceOperationIn.LunchBooking/ns0:guestName</from>
+                            <to>$InsertIn.part/ns1:LUNCH_RESERVATION_Record/ns1:GUEST_NAME</to>
+                        </copy>
+                        <copy>
+                            <from>$LunchServiceOperationIn.LunchBooking/ns0:roomNumber</from>
+                            <to>$InsertIn.part/ns1:LUNCH_RESERVATION_Record/ns1:ROOM_NUMBER</to>
+                        </copy>
+                        <copy>
+                            <from>$LunchServiceOperationIn.LunchBooking/ns0:numberOfLunches</from>
+                            <to>$InsertIn.part/ns1:LUNCH_RESERVATION_Record/ns1:NUMBER_OF_LUNCHES</to>
+                        </copy>
+                        <copy>
+                            <from>$LunchServiceOperationIn.LunchBooking/ns0:lunchDate</from>
+                            <to>$InsertIn.part/ns1:LUNCH_RESERVATION_Record/ns1:LUNCH_DATE</to>
+                        </copy>
+                    </assign>
+                    <invoke name="storeData" partnerLink="PartnerLink1" operation="insert" xmlns:tns="http://j2ee.netbeans.org/wsdl/LunchService/lunchDatabase" portType="tns:jdbcPortType" inputVariable="InsertIn" outputVariable="InsertOut"/>
+                </sequence>
+            </onMessage>
+        </pick>
+    </sequence>
+</process>
+
+
+
+
