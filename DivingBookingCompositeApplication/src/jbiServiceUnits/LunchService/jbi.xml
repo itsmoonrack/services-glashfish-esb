@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <jbi xmlns="http://java.sun.com/xml/ns/jbi" xmlns:ns0="http://enterprise.netbeans.org/bpel/LunchService/lunchService" xmlns:ns1="http://j2ee.netbeans.org/wsdl/LunchService/JavaDBLunchTable" xmlns:ns2="http://j2ee.netbeans.org/wsdl/LunchService/LunchReservation" xmlns:ns3="http://www.sun.com/jbi/descriptor/service-unit" version="1.0">
     <services binding-component="false">
-        <provides endpoint-name="lunchServiceRole_myRole" interface-name="ns2:lunchServicePortType" service-name="ns0:PartnerLinkLunchService">
-            <ns3:display-name>PartnerLinkLunchService</ns3:display-name>
+        <provides endpoint-name="lunchServiceRole_myRole" interface-name="ns2:lunchServicePortType" service-name="ns0:LunchService">
+            <ns3:display-name>LunchService</ns3:display-name>
             <ns3:process-name>LunchReservation</ns3:process-name>
             <ns3:file-path>LunchReservation.bpel</ns3:file-path>
         </provides>
