@@ -1,0 +1,17 @@
+<soapenv:Envelope xsi:schemaLocation="http://schemas.xmlsoap.org/soap/envelope/ http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cli="http://j2ee.netbeans.org/wsdl/HotelReception/ClientSurvey" xmlns:hot="http://xml.netbeans.org/schema/hotel">
+  <soapenv:Body>
+    <cli:ClientSurveyOperation>
+      <clientRequest>
+        <hot:guestName>Sylvain Lecoy</hot:guestName>
+        <hot:roomNumber>3</hot:roomNumber>
+        <hot:requestDate>2008-09-29</hot:requestDate>
+        <hot:numberOfDivers>3</hot:numberOfDivers>
+        <hot:lunchInclued>true</hot:lunchInclued>
+        <hot:cavesInterest></hot:cavesInterest>
+        <hot:dolphinsInterest>Je veut des dauphins</hot:dolphinsInterest>
+        <hot:sharksInterest></hot:sharksInterest>
+        <hot:wrecksInterest></hot:wrecksInterest>
+      </clientRequest>
+    </cli:ClientSurveyOperation>
+  </soapenv:Body>
+</soapenv:Envelope>

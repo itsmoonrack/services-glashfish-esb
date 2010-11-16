@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<jbi xmlns="http://java.sun.com/xml/ns/jbi" xmlns:ns1="http://j2ee.netbeans.org/wsdl/LunchService/LunchReservation" xmlns:ns2="http://enterprise.netbeans.org/bpel/LunchService/lunchService" xmlns:ns3="http://j2ee.netbeans.org/wsdl/LunchService/JavaDBLunchTable" xmlns:ns4="http://enterprise.netbeans.org/bpel/TaxiService/taxiService" xmlns:ns5="http://j2ee.netbeans.org/wsdl/TaxiService/TaxiService" version="1.0">
+<jbi xmlns="http://java.sun.com/xml/ns/jbi" xmlns:ns1="http://enterprise.netbeans.org/bpel/ProcessManager/processManager" xmlns:ns10="http://enterprise.netbeans.org/bpel/TaxiService/taxiService" xmlns:ns11="http://j2ee.netbeans.org/wsdl/TaxiService/TaxiService" xmlns:ns2="http://enterprise.netbeans.org/bpel/SharkDivingAgency/SharkDivingAgency" xmlns:ns3="http://j2ee.netbeans.org/wsdl/LunchService/LunchReservation" xmlns:ns4="http://enterprise.netbeans.org/bpel/LunchService/lunchService" xmlns:ns5="http://enterprise.netbeans.org/bpel/WreckAndCaveDivingAgency/WreckAndCaveAgency" xmlns:ns6="http://j2ee.netbeans.org/wsdl/HotelReception/ClientSurvey" xmlns:ns7="http://enterprise.netbeans.org/bpel/HotelReception/hotelReception" xmlns:ns8="http://enterprise.netbeans.org/bpel/DolphinDivingAgency/DolphinDivingAgency" xmlns:ns9="http://j2ee.netbeans.org/wsdl/LunchService/JavaDBLunchTable" version="1.0">
     <services binding-component="true">
-        <provides endpoint-name="port" interface-name="ns3:jdbcPortType" service-name="ns3:service"/>
-        <provides endpoint-name="port" interface-name="ns5:jdbcPortType" service-name="ns5:service"/>
+        <provides endpoint-name="port" interface-name="ns9:jdbcPortType" service-name="ns9:service"/>
+        <provides endpoint-name="port" interface-name="ns11:jdbcPortType" service-name="ns11:service"/>
     </services>
 </jbi>

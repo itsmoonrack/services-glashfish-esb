@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<jbi xmlns="http://java.sun.com/xml/ns/jbi" xmlns:ns0="http://enterprise.netbeans.org/bpel/ProcessManager/processManager" xmlns:ns1="http://j2ee.netbeans.org/wsdl/SharkDivingAgency/SharkDivingAgency" xmlns:ns2="http://j2ee.netbeans.org/wsdl/WreckAndCaveDivingAgency/WreckAndCaveAgency" xmlns:ns3="http://j2ee.netbeans.org/wsdl/HotelReception/ScubaDivingRequest" xmlns:ns4="http://j2ee.netbeans.org/wsdl/DolphinDivingAgency/DolphinDivingAgency" xmlns:ns5="http://www.sun.com/jbi/descriptor/service-unit" version="1.0">
+    <services binding-component="false">
+        <provides endpoint-name="ScubaDivingRequestPortTypeRole_myRole" interface-name="ns3:ScubaDivingRequestPortType" service-name="ns0:ProcessManager">
+            <ns5:display-name>ProcessManager</ns5:display-name>
+            <ns5:process-name>processManager</ns5:process-name>
+            <ns5:file-path>processManager.bpel</ns5:file-path>
+        </provides>
+        <consumes endpoint-name="SharkDivingAgencyPortTypeRole_partnerRole" interface-name="ns1:SharkDivingAgencyPortType" service-name="ns0:SharkDivingAgency">
+            <ns5:display-name>SharkDivingAgency</ns5:display-name>
+            <ns5:process-name>processManager</ns5:process-name>
+            <ns5:file-path>processManager.bpel</ns5:file-path>
+        </consumes>
+        <consumes endpoint-name="WreckAndCaveAgencyPortTypeRole_partnerRole" interface-name="ns2:WreckAndCaveAgencyPortType" service-name="ns0:WreckAndCaveDivingAgency">
+            <ns5:display-name>WreckAndCaveDivingAgency</ns5:display-name>
+            <ns5:process-name>processManager</ns5:process-name>
+            <ns5:file-path>processManager.bpel</ns5:file-path>
+        </consumes>
+        <consumes endpoint-name="DolphinDivingAgencyPortTypeRole_partnerRole" interface-name="ns4:DolphinDivingAgencyPortType" service-name="ns0:DolphinDivingAgency">
+            <ns5:display-name>DolphinDivingAgency</ns5:display-name>
+            <ns5:process-name>processManager</ns5:process-name>
+            <ns5:file-path>processManager.bpel</ns5:file-path>
+        </consumes>
+    </services>
+</jbi>

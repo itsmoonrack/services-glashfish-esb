@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions name="TaxiRequest" targetNamespace="http://j2ee.netbeans.org/wsdl/TaxiService/TaxiRequest"
+    xmlns="http://schemas.xmlsoap.org/wsdl/"
+    xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://j2ee.netbeans.org/wsdl/TaxiService/TaxiRequest" xmlns:ns="http://xml.netbeans.org/schema/taxi" xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype">
+    <types>
+        <xsd:schema targetNamespace="http://j2ee.netbeans.org/wsdl/TaxiService/TaxiRequest">
+            <xsd:import namespace="http://xml.netbeans.org/schema/taxi" schemaLocation="taxi.xsd"/>
+        </xsd:schema>
+    </types>
+    <message name="TaxiRequestOperationRequest">
+        <part name="taxiRequest" type="ns:TaxiRequest"/>
+    </message>
+    <message name="TaxiRequestOperationResponse">
+        <part name="taxiBooking" type="ns:TaxiBooking"/>
+    </message>
+    <portType name="TaxiRequestPortType">
+        <operation name="TaxiRequestOperation">
+            <input name="input1" message="tns:TaxiRequestOperationRequest"/>
+            <output name="output1" message="tns:TaxiRequestOperationResponse"/>
+        </operation>
+    </portType>
+    <plnk:partnerLinkType name="TaxiRequest">
+        <!-- A partner link type is automatically generated when a new port type is added. Partner link types are used by BPEL processes. 
+In a BPEL process, a partner link represents the interaction between the BPEL process and a partner service. Each partner link is associated with a partner link type.
+A partner link type characterizes the conversational relationship between two services. The partner link type can have one or two roles.-->
+        <plnk:role name="TaxiRequestPortTypeRole" portType="tns:TaxiRequestPortType"/>
+    </plnk:partnerLinkType>
+</definitions>
+

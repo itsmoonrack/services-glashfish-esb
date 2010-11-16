@@ -5,7 +5,7 @@
     xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://j2ee.netbeans.org/wsdl/HotelReception/ScubaDivingRequest" xmlns:ns="http://xml.netbeans.org/schema/Exchanges" xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:ns0="http://xml.netbeans.org/schema/hotel">
     <types>
         <xsd:schema targetNamespace="http://j2ee.netbeans.org/wsdl/HotelReception/ScubaDivingRequest">
-            <xsd:import namespace="http://xml.netbeans.org/schema/hotel" schemaLocation="hotel.xsd"/>
+            <xsd:import namespace="http://xml.netbeans.org/schema/hotel" schemaLocation="Hotel.xsd"/>
         </xsd:schema>
     </types>
     <message name="ScubaDivingRequestOperationRequest">
@@ -27,6 +27,8 @@ A partner link type characterizes the conversational relationship between two se
         <plnk:role name="ScubaDivingRequestPortTypeRole" portType="tns:ScubaDivingRequestPortType"/>
     </plnk:partnerLinkType>
 </definitions>
+
+
 
 
 

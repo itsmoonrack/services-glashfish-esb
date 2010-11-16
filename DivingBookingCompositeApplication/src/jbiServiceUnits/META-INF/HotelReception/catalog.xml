@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="ProcessManager/ProcessManager.wsdl" uri="src/_references/_projects/ProcessManager/src/ProcessManager.wsdl"/>
+    <system systemId="Hotel.xsd" uri="src/_references/_projects/ProcessManager/src/Hotel.xsd"/>
+    <system systemId="ProcessManager/Hotel.xsd" uri="src/_references/_projects/ProcessManager/src/Hotel.xsd"/>
+</catalog>

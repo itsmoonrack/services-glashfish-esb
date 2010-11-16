@@ -100,6 +100,40 @@
         COMPILATION SECTION
     -->
     <target name="deps-jar" depends="init" unless="${no.dependencies}">
+        <ant target="dist_se" inheritall="false" antfile="${project.DolphinDivingAgency}/build.xml"/>
+        <property name="DolphinDivingAgency.su.name" value="DolphinDivingAgency"/>
+        <unzip src="${reference.DolphinDivingAgency.dist_se}" dest="${src.dir}/../jbiServiceUnits/${DolphinDivingAgency.su.name}">
+            <patternset>
+                <include name="**/*.wsdl"/>
+                <include name="**/*.WSDL"/>
+                <include name="**/*.xsd"/>
+                <include name="**/*.XSD"/>
+                <include name="META-INF/jbi.xml"/>
+                <include name="META-INF/catalog.xml"/>
+            </patternset>
+        </unzip>
+        <property name="DolphinDivingAgency.su.dir" value="${src.dir}/../jbiServiceUnits/${DolphinDivingAgency.su.name}"/>
+        <move file="${DolphinDivingAgency.su.dir}/META-INF/jbi.xml" todir="${DolphinDivingAgency.su.dir}"/>
+        <move todir="${src.dir}/../jbiServiceUnits/META-INF/${DolphinDivingAgency.su.name}">
+            <fileset dir="${DolphinDivingAgency.su.dir}/META-INF"/>
+        </move>
+        <ant target="dist_se" inheritall="false" antfile="${project.HotelReception}/build.xml"/>
+        <property name="HotelReception.su.name" value="HotelReception"/>
+        <unzip src="${reference.HotelReception.dist_se}" dest="${src.dir}/../jbiServiceUnits/${HotelReception.su.name}">
+            <patternset>
+                <include name="**/*.wsdl"/>
+                <include name="**/*.WSDL"/>
+                <include name="**/*.xsd"/>
+                <include name="**/*.XSD"/>
+                <include name="META-INF/jbi.xml"/>
+                <include name="META-INF/catalog.xml"/>
+            </patternset>
+        </unzip>
+        <property name="HotelReception.su.dir" value="${src.dir}/../jbiServiceUnits/${HotelReception.su.name}"/>
+        <move file="${HotelReception.su.dir}/META-INF/jbi.xml" todir="${HotelReception.su.dir}"/>
+        <move todir="${src.dir}/../jbiServiceUnits/META-INF/${HotelReception.su.name}">
+            <fileset dir="${HotelReception.su.dir}/META-INF"/>
+        </move>
         <ant target="dist_se" inheritall="false" antfile="${project.LunchService}/build.xml"/>
         <property name="LunchService.su.name" value="LunchService"/>
         <unzip src="${reference.LunchService.dist_se}" dest="${src.dir}/../jbiServiceUnits/${LunchService.su.name}">
@@ -117,6 +151,74 @@
         <move todir="${src.dir}/../jbiServiceUnits/META-INF/${LunchService.su.name}">
             <fileset dir="${LunchService.su.dir}/META-INF"/>
         </move>
+        <ant target="dist_se" inheritall="false" antfile="${project.ProcessManager}/build.xml"/>
+        <property name="ProcessManager.su.name" value="ProcessManager"/>
+        <unzip src="${reference.ProcessManager.dist_se}" dest="${src.dir}/../jbiServiceUnits/${ProcessManager.su.name}">
+            <patternset>
+                <include name="**/*.wsdl"/>
+                <include name="**/*.WSDL"/>
+                <include name="**/*.xsd"/>
+                <include name="**/*.XSD"/>
+                <include name="META-INF/jbi.xml"/>
+                <include name="META-INF/catalog.xml"/>
+            </patternset>
+        </unzip>
+        <property name="ProcessManager.su.dir" value="${src.dir}/../jbiServiceUnits/${ProcessManager.su.name}"/>
+        <move file="${ProcessManager.su.dir}/META-INF/jbi.xml" todir="${ProcessManager.su.dir}"/>
+        <move todir="${src.dir}/../jbiServiceUnits/META-INF/${ProcessManager.su.name}">
+            <fileset dir="${ProcessManager.su.dir}/META-INF"/>
+        </move>
+        <ant target="dist_se" inheritall="false" antfile="${project.SharkDivingAgency}/build.xml"/>
+        <property name="SharkDivingAgency.su.name" value="SharkDivingAgency"/>
+        <unzip src="${reference.SharkDivingAgency.dist_se}" dest="${src.dir}/../jbiServiceUnits/${SharkDivingAgency.su.name}">
+            <patternset>
+                <include name="**/*.wsdl"/>
+                <include name="**/*.WSDL"/>
+                <include name="**/*.xsd"/>
+                <include name="**/*.XSD"/>
+                <include name="META-INF/jbi.xml"/>
+                <include name="META-INF/catalog.xml"/>
+            </patternset>
+        </unzip>
+        <property name="SharkDivingAgency.su.dir" value="${src.dir}/../jbiServiceUnits/${SharkDivingAgency.su.name}"/>
+        <move file="${SharkDivingAgency.su.dir}/META-INF/jbi.xml" todir="${SharkDivingAgency.su.dir}"/>
+        <move todir="${src.dir}/../jbiServiceUnits/META-INF/${SharkDivingAgency.su.name}">
+            <fileset dir="${SharkDivingAgency.su.dir}/META-INF"/>
+        </move>
+        <ant target="dist_se" inheritall="false" antfile="${project.TaxiService}/build.xml"/>
+        <property name="TaxiService.su.name" value="TaxiService"/>
+        <unzip src="${reference.TaxiService.dist_se}" dest="${src.dir}/../jbiServiceUnits/${TaxiService.su.name}">
+            <patternset>
+                <include name="**/*.wsdl"/>
+                <include name="**/*.WSDL"/>
+                <include name="**/*.xsd"/>
+                <include name="**/*.XSD"/>
+                <include name="META-INF/jbi.xml"/>
+                <include name="META-INF/catalog.xml"/>
+            </patternset>
+        </unzip>
+        <property name="TaxiService.su.dir" value="${src.dir}/../jbiServiceUnits/${TaxiService.su.name}"/>
+        <move file="${TaxiService.su.dir}/META-INF/jbi.xml" todir="${TaxiService.su.dir}"/>
+        <move todir="${src.dir}/../jbiServiceUnits/META-INF/${TaxiService.su.name}">
+            <fileset dir="${TaxiService.su.dir}/META-INF"/>
+        </move>
+        <ant target="dist_se" inheritall="false" antfile="${project.WreckAndCaveDivingAgency}/build.xml"/>
+        <property name="WreckAndCaveDivingAgency.su.name" value="WreckAndCaveDivingAgency"/>
+        <unzip src="${reference.WreckAndCaveDivingAgency.dist_se}" dest="${src.dir}/../jbiServiceUnits/${WreckAndCaveDivingAgency.su.name}">
+            <patternset>
+                <include name="**/*.wsdl"/>
+                <include name="**/*.WSDL"/>
+                <include name="**/*.xsd"/>
+                <include name="**/*.XSD"/>
+                <include name="META-INF/jbi.xml"/>
+                <include name="META-INF/catalog.xml"/>
+            </patternset>
+        </unzip>
+        <property name="WreckAndCaveDivingAgency.su.dir" value="${src.dir}/../jbiServiceUnits/${WreckAndCaveDivingAgency.su.name}"/>
+        <move file="${WreckAndCaveDivingAgency.su.dir}/META-INF/jbi.xml" todir="${WreckAndCaveDivingAgency.su.dir}"/>
+        <move todir="${src.dir}/../jbiServiceUnits/META-INF/${WreckAndCaveDivingAgency.su.name}">
+            <fileset dir="${WreckAndCaveDivingAgency.su.dir}/META-INF"/>
+        </move>
     </target>
     <target name="deps-javaee-jar" depends="init" unless="${no.dependencies}"/>
     <target name="pre-pre-compile" depends="init,deps-jar">
@@ -127,13 +229,31 @@
         <!-- You can override this target in the ../build.xml file. -->
     </target>
     <target name="library-inclusion-in-archive" depends="compile">
+        <unjar dest="${build.classes.dir}" src="${reference.WreckAndCaveDivingAgency.dist_se}"/>
+        <unjar dest="${build.classes.dir}" src="${reference.TaxiService.dist_se}"/>
+        <unjar dest="${build.classes.dir}" src="${reference.SharkDivingAgency.dist_se}"/>
+        <unjar dest="${build.classes.dir}" src="${reference.HotelReception.dist_se}"/>
+        <unjar dest="${build.classes.dir}" src="${reference.DolphinDivingAgency.dist_se}"/>
+        <unjar dest="${build.classes.dir}" src="${reference.ProcessManager.dist_se}"/>
         <unjar dest="${build.classes.dir}" src="${reference.LunchService.dist_se}"/>
     </target>
     <target name="library-inclusion-in-manifest" depends="compile">
+        <basename property="included.lib.reference.WreckAndCaveDivingAgency.dist_se" file="${reference.WreckAndCaveDivingAgency.dist_se}"/>
+        <copy todir="${build.classes.dir}" file="${reference.WreckAndCaveDivingAgency.dist_se}"/>
+        <basename property="included.lib.reference.TaxiService.dist_se" file="${reference.TaxiService.dist_se}"/>
+        <copy todir="${build.classes.dir}" file="${reference.TaxiService.dist_se}"/>
+        <basename property="included.lib.reference.SharkDivingAgency.dist_se" file="${reference.SharkDivingAgency.dist_se}"/>
+        <copy todir="${build.classes.dir}" file="${reference.SharkDivingAgency.dist_se}"/>
+        <basename property="included.lib.reference.HotelReception.dist_se" file="${reference.HotelReception.dist_se}"/>
+        <copy todir="${build.classes.dir}" file="${reference.HotelReception.dist_se}"/>
+        <basename property="included.lib.reference.DolphinDivingAgency.dist_se" file="${reference.DolphinDivingAgency.dist_se}"/>
+        <copy todir="${build.classes.dir}" file="${reference.DolphinDivingAgency.dist_se}"/>
+        <basename property="included.lib.reference.ProcessManager.dist_se" file="${reference.ProcessManager.dist_se}"/>
+        <copy todir="${build.classes.dir}" file="${reference.ProcessManager.dist_se}"/>
         <basename property="included.lib.reference.LunchService.dist_se" file="${reference.LunchService.dist_se}"/>
         <copy todir="${build.classes.dir}" file="${reference.LunchService.dist_se}"/>
         <manifest file="${build.classes.dir}/META-INF/MANIFEST.MF" mode="update">
-            <attribute name="Class-Path" value="${included.lib.reference.LunchService.dist_se}"/>
+            <attribute name="Class-Path" value="${included.lib.reference.WreckAndCaveDivingAgency.dist_se},${included.lib.reference.TaxiService.dist_se},${included.lib.reference.SharkDivingAgency.dist_se},${included.lib.reference.HotelReception.dist_se},${included.lib.reference.DolphinDivingAgency.dist_se},${included.lib.reference.ProcessManager.dist_se},${included.lib.reference.LunchService.dist_se}"/>
         </manifest>
     </target>
     <target name="do-compile" depends="init,deps-jar,pre-pre-compile,pre-compile"/>
@@ -225,7 +345,13 @@
         CLEANUP SECTION
     -->
     <target name="deps-clean" depends="init" unless="${no.dependencies}">
+        <ant target="clean" inheritall="false" antfile="${project.DolphinDivingAgency}/build.xml"/>
+        <ant target="clean" inheritall="false" antfile="${project.HotelReception}/build.xml"/>
         <ant target="clean" inheritall="false" antfile="${project.LunchService}/build.xml"/>
+        <ant target="clean" inheritall="false" antfile="${project.ProcessManager}/build.xml"/>
+        <ant target="clean" inheritall="false" antfile="${project.SharkDivingAgency}/build.xml"/>
+        <ant target="clean" inheritall="false" antfile="${project.TaxiService}/build.xml"/>
+        <ant target="clean" inheritall="false" antfile="${project.WreckAndCaveDivingAgency}/build.xml"/>
     </target>
     <target name="do-clean" depends="init">
         <delete dir="${build.dir}"/>

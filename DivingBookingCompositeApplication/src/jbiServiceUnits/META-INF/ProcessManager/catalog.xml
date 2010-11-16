@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="SharkDivingAgency/SharkDivingAgency.wsdl" uri="src/_references/_projects/SharkDivingAgency/src/SharkDivingAgency.wsdl"/>
+    <system systemId="Diving.xsd" uri="src/_references/_projects/SharkDivingAgency/src/Diving.xsd"/>
+    <system systemId="DolphinDivingAgency/DolphinDivingAgency.wsdl" uri="src/_references/_projects/DolphinDivingAgency/src/DolphinDivingAgency.wsdl"/>
+    <system systemId="WreckAndCaveDivingAgency/WreckAndCaveDivingAgency.wsdl" uri="src/_references/_projects/WreckAndCaveDivingAgency/src/WreckAndCaveDivingAgency.wsdl"/>
+</catalog>

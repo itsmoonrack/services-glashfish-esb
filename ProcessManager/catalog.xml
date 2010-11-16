@@ -4,8 +4,8 @@
     <system systemId="SharkDivingAgency/SharkDivingAgency.wsdl" uri="nb-uri:SharkDivingAgency#src/SharkDivingAgency.wsdl"/>
     <system systemId="DolphinDivingAgency/DolphinDivingAgency.wsdl" uri="nb-uri:DolphinDivingAgency#src/DolphinDivingAgency.wsdl"/>
     <system systemId="WreckAndCaveDivingAgency/WreckAndCaveDivingAgency.wsdl" uri="nb-uri:WreckAndCaveDivingAgency#src/WreckAndCaveDivingAgency.wsdl"/>
-    <system systemId="HotelReception/hotel.xsd" uri="nb-uri:HotelReception#src/hotel.xsd"/>
 </catalog>
+
 
 
 

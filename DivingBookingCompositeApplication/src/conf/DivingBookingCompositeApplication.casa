@@ -1,53 +1,117 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<casa xmlns="http://java.sun.com/xml/ns/casa" xmlns:ns1="http://enterprise.netbeans.org/bpel/LunchService/lunchService" xmlns:ns2="http://j2ee.netbeans.org/wsdl/LunchService/LunchReservation" xmlns:ns3="http://j2ee.netbeans.org/wsdl/LunchService/JavaDBLunchTable" xmlns:ns4="http://j2ee.netbeans.org/wsdl/TaxiService/TaxiService" xmlns:xlink="http://www.w3.org/2000/xlink">
+<casa xmlns="http://java.sun.com/xml/ns/casa" xmlns:ns1="http://j2ee.netbeans.org/wsdl/LunchService/JavaDBLunchTable" xmlns:ns10="http://j2ee.netbeans.org/wsdl/SharkDivingAgency/SharkDivingAgency" xmlns:ns11="http://enterprise.netbeans.org/bpel/HotelReception/hotelReception" xmlns:ns12="http://j2ee.netbeans.org/wsdl/HotelReception/ScubaDivingRequest" xmlns:ns13="http://enterprise.netbeans.org/bpel/DolphinDivingAgency/DolphinDivingAgency" xmlns:ns14="http://j2ee.netbeans.org/wsdl/DolphinDivingAgency/DolphinDivingAgency" xmlns:ns15="http://enterprise.netbeans.org/bpel/ProcessManager/processManager" xmlns:ns16="http://enterprise.netbeans.org/bpel/LunchService/lunchService" xmlns:ns2="http://j2ee.netbeans.org/wsdl/TaxiService/TaxiService" xmlns:ns3="http://j2ee.netbeans.org/wsdl/LunchService/LunchReservation" xmlns:ns4="http://j2ee.netbeans.org/wsdl/HotelReception/ClientSurvey" xmlns:ns5="http://enterprise.netbeans.org/bpel/WreckAndCaveDivingAgency/WreckAndCaveAgency" xmlns:ns6="http://j2ee.netbeans.org/wsdl/WreckAndCaveDivingAgency/WreckAndCaveAgency" xmlns:ns7="http://enterprise.netbeans.org/bpel/TaxiService/taxiService" xmlns:ns8="http://j2ee.netbeans.org/wsdl/TaxiService/TaxiRequest" xmlns:ns9="http://enterprise.netbeans.org/bpel/SharkDivingAgency/SharkDivingAgency" xmlns:xlink="http://www.w3.org/2000/xlink">
     <endpoints>
-        <endpoint display-name="LunchService" endpoint-name="lunchServiceRole_myRole" file-path="LunchReservation.bpel" interface-name="ns2:lunchServicePortType" name="endpoint1" process-name="LunchReservation" service-name="ns1:LunchService"/>
-        <endpoint display-name="Database" endpoint-name="jdbcPortTypeRole_partnerRole" file-path="LunchReservation.bpel" interface-name="ns3:jdbcPortType" name="endpoint2" process-name="LunchReservation" service-name="ns1:Database"/>
-        <endpoint endpoint-name="port" interface-name="ns3:jdbcPortType" name="endpoint3" service-name="ns3:service"/>
-        <endpoint endpoint-name="port" interface-name="ns4:jdbcPortType" name="endpoint4" service-name="ns4:service"/>
-        <endpoint endpoint-name="lunchServicePort" interface-name="ns2:lunchServicePortType" name="endpoint5" service-name="ns2:lunchServiceService"/>
+        <endpoint endpoint-name="port" interface-name="ns1:jdbcPortType" name="endpoint1" service-name="ns1:service"/>
+        <endpoint endpoint-name="port" interface-name="ns2:jdbcPortType" name="endpoint2" service-name="ns2:service"/>
+        <endpoint endpoint-name="lunchServicePort" interface-name="ns3:lunchServicePortType" name="endpoint3" service-name="ns3:lunchServiceService"/>
+        <endpoint endpoint-name="ClientSurveyPort" interface-name="ns4:ClientSurveyPortType" name="endpoint4" service-name="ns4:ClientSurveyService"/>
+        <endpoint display-name="PartnerLink1" endpoint-name="WreckAndCaveAgencyPortTypeRole_myRole" file-path="WreckAndCaveDivingAgency.bpel" interface-name="ns6:WreckAndCaveAgencyPortType" name="endpoint5" process-name="WreckAndCaveAgency" service-name="ns5:PartnerLink1"/>
+        <endpoint display-name="ProcessManager" endpoint-name="TaxiRequestPortTypeRole_myRole" file-path="taxiService.bpel" interface-name="ns8:TaxiRequestPortType" name="endpoint6" process-name="taxiService" service-name="ns7:ProcessManager"/>
+        <endpoint display-name="TaxiDatabase" endpoint-name="jdbcPortTypeRole_partnerRole" file-path="taxiService.bpel" interface-name="ns2:jdbcPortType" name="endpoint7" process-name="taxiService" service-name="ns7:TaxiDatabase"/>
+        <endpoint display-name="PartnerLink1" endpoint-name="SharkDivingAgencyPortTypeRole_myRole" file-path="SharkDivingAgency.bpel" interface-name="ns10:SharkDivingAgencyPortType" name="endpoint8" process-name="SharkDivingAgency" service-name="ns9:PartnerLink1"/>
+        <endpoint display-name="Client" endpoint-name="ClientSurveyPortTypeRole_myRole" file-path="hotelReception.bpel" interface-name="ns4:ClientSurveyPortType" name="endpoint9" process-name="hotelReception" service-name="ns11:Client"/>
+        <endpoint display-name="PartnerLink1" endpoint-name="ScubaDivingRequestPortTypeRole_partnerRole" file-path="hotelReception.bpel" interface-name="ns12:ScubaDivingRequestPortType" name="endpoint10" process-name="hotelReception" service-name="ns11:PartnerLink1"/>
+        <endpoint display-name="PartnerLink1" endpoint-name="DolphinDivingAgencyPortTypeRole_myRole" file-path="DolphinDivingAgency.bpel" interface-name="ns14:DolphinDivingAgencyPortType" name="endpoint11" process-name="DolphinDivingAgency" service-name="ns13:PartnerLink1"/>
+        <endpoint display-name="ProcessManager" endpoint-name="ScubaDivingRequestPortTypeRole_myRole" file-path="processManager.bpel" interface-name="ns12:ScubaDivingRequestPortType" name="endpoint12" process-name="processManager" service-name="ns15:ProcessManager"/>
+        <endpoint display-name="SharkDivingAgency" endpoint-name="SharkDivingAgencyPortTypeRole_partnerRole" file-path="processManager.bpel" interface-name="ns10:SharkDivingAgencyPortType" name="endpoint13" process-name="processManager" service-name="ns15:SharkDivingAgency"/>
+        <endpoint display-name="WreckAndCaveDivingAgency" endpoint-name="WreckAndCaveAgencyPortTypeRole_partnerRole" file-path="processManager.bpel" interface-name="ns6:WreckAndCaveAgencyPortType" name="endpoint14" process-name="processManager" service-name="ns15:WreckAndCaveDivingAgency"/>
+        <endpoint display-name="DolphinDivingAgency" endpoint-name="DolphinDivingAgencyPortTypeRole_partnerRole" file-path="processManager.bpel" interface-name="ns14:DolphinDivingAgencyPortType" name="endpoint15" process-name="processManager" service-name="ns15:DolphinDivingAgency"/>
+        <endpoint display-name="LunchService" endpoint-name="lunchServiceRole_myRole" file-path="LunchReservation.bpel" interface-name="ns3:lunchServicePortType" name="endpoint16" process-name="LunchReservation" service-name="ns16:LunchService"/>
+        <endpoint display-name="Database" endpoint-name="jdbcPortTypeRole_partnerRole" file-path="LunchReservation.bpel" interface-name="ns1:jdbcPortType" name="endpoint17" process-name="LunchReservation" service-name="ns16:Database"/>
     </endpoints>
     <service-units>
-        <service-engine-service-unit artifacts-zip="LunchService.jar" component-name="sun-bpel-engine" defined="true" description="Represents this Service Unit" internal="true" name="DivingBookingCompositeApplication-LunchService" unit-name="LunchService" unknown="false" x="152" y="99">
-            <provides endpoint="endpoint1"/>
-            <consumes endpoint="endpoint2"/>
+        <service-engine-service-unit artifacts-zip="WreckAndCaveDivingAgency.jar" component-name="sun-bpel-engine" defined="true" description="Represents this Service Unit" internal="true" name="DivingBookingCompositeApplication-WreckAndCaveDivingAgency" unit-name="WreckAndCaveDivingAgency" unknown="false" x="109" y="99">
+            <provides endpoint="endpoint5"/>
+        </service-engine-service-unit>
+        <service-engine-service-unit artifacts-zip="TaxiService.jar" component-name="sun-bpel-engine" defined="true" description="Represents this Service Unit" internal="true" name="DivingBookingCompositeApplication-TaxiService" unit-name="TaxiService" unknown="false" x="158" y="238">
+            <provides endpoint="endpoint6"/>
+            <consumes endpoint="endpoint7"/>
+        </service-engine-service-unit>
+        <service-engine-service-unit artifacts-zip="SharkDivingAgency.jar" component-name="sun-bpel-engine" defined="true" description="Represents this Service Unit" internal="true" name="DivingBookingCompositeApplication-SharkDivingAgency" unit-name="SharkDivingAgency" unknown="false" x="136" y="399">
+            <provides endpoint="endpoint8"/>
+        </service-engine-service-unit>
+        <service-engine-service-unit artifacts-zip="HotelReception.jar" component-name="sun-bpel-engine" defined="true" description="Represents this Service Unit" internal="true" name="DivingBookingCompositeApplication-HotelReception" unit-name="HotelReception" unknown="false" x="148" y="538">
+            <provides endpoint="endpoint9"/>
+            <consumes endpoint="endpoint10"/>
+        </service-engine-service-unit>
+        <service-engine-service-unit artifacts-zip="DolphinDivingAgency.jar" component-name="sun-bpel-engine" defined="true" description="Represents this Service Unit" internal="true" name="DivingBookingCompositeApplication-DolphinDivingAgency" unit-name="DolphinDivingAgency" unknown="false" x="132" y="699">
+            <provides endpoint="endpoint11"/>
+        </service-engine-service-unit>
+        <service-engine-service-unit artifacts-zip="ProcessManager.jar" component-name="sun-bpel-engine" defined="true" description="Represents this Service Unit" internal="true" name="DivingBookingCompositeApplication-ProcessManager" unit-name="ProcessManager" unknown="false" x="142" y="838">
+            <provides endpoint="endpoint12"/>
+            <consumes endpoint="endpoint13"/>
+            <consumes endpoint="endpoint14"/>
+            <consumes endpoint="endpoint15"/>
+        </service-engine-service-unit>
+        <service-engine-service-unit artifacts-zip="LunchService.jar" component-name="sun-bpel-engine" defined="true" description="Represents this Service Unit" internal="true" name="DivingBookingCompositeApplication-LunchService" unit-name="LunchService" unknown="false" x="152" y="1043">
+            <provides endpoint="endpoint16"/>
+            <consumes endpoint="endpoint17"/>
         </service-engine-service-unit>
         <binding-component-service-unit artifacts-zip="sun-database-binding.jar" component-name="sun-database-binding" description="Represents this Service Unit" name="DivingBookingCompositeApplication-sun-database-binding" unit-name="sun-database-binding">
             <ports>
-                <port x="67" y="118">
+                <port x="67" y="303">
                     <link xlink:href="../jbiServiceUnits/LunchService/JavaDBLunchTable.wsdl#xpointer(/definitions/service[@name='service']/port[@name='port'])" xlink:type="simple"/>
-                    <consumes endpoint="endpoint3"/>
-                    <provides endpoint="endpoint3"/>
+                    <consumes endpoint="endpoint1"/>
+                    <provides endpoint="endpoint1"/>
+                </port>
+                <port x="67" y="118">
+                    <link xlink:href="../jbiServiceUnits/TaxiService/TaxiService.wsdl#xpointer(/definitions/service[@name='service']/port[@name='port'])" xlink:type="simple"/>
+                    <consumes endpoint="endpoint2"/>
+                    <provides endpoint="endpoint2"/>
                 </port>
             </ports>
         </binding-component-service-unit>
         <binding-component-service-unit artifacts-zip="sun-http-binding.jar" component-name="sun-http-binding" description="Represents this Service Unit" name="DivingBookingCompositeApplication-sun-http-binding" unit-name="sun-http-binding">
             <ports>
                 <port x="67" y="39">
+                    <link xlink:href="../jbiServiceUnits/HotelReception/ClientSurvey.wsdl#xpointer(/definitions/service[@name='ClientSurveyService']/port[@name='ClientSurveyPort'])" xlink:type="simple"/>
+                    <consumes endpoint="endpoint4"/>
+                    <provides endpoint="endpoint4"/>
+                </port>
+                <port x="67" y="224">
                     <link xlink:href="../jbiServiceUnits/LunchService/LunchReservation.wsdl#xpointer(/definitions/service[@name='lunchServiceService']/port[@name='lunchServicePort'])" xlink:type="simple"/>
-                    <consumes endpoint="endpoint5"/>
-                    <provides endpoint="endpoint5"/>
+                    <consumes endpoint="endpoint3"/>
+                    <provides endpoint="endpoint3"/>
                 </port>
             </ports>
         </binding-component-service-unit>
-    
-    
     </service-units>
     <connections>
-        <connection consumer="endpoint5" provider="endpoint1" state="unchanged"/>
-        <connection consumer="endpoint2" provider="endpoint3" state="unchanged"/>
+        <connection consumer="endpoint13" provider="endpoint8" state="unchanged"/>
+        <connection consumer="endpoint3" provider="endpoint16" state="unchanged"/>
+        <connection consumer="endpoint14" provider="endpoint5" state="unchanged"/>
+        <connection consumer="endpoint4" provider="endpoint9" state="unchanged"/>
+        <connection consumer="endpoint15" provider="endpoint11" state="unchanged"/>
+        <connection consumer="endpoint10" provider="endpoint12" state="unchanged"/>
+        <connection consumer="endpoint17" provider="endpoint1" state="unchanged"/>
+        <connection consumer="endpoint7" provider="endpoint2" state="unchanged"/>
     </connections>
     <porttypes>
+        <link xlink:href="../jbiServiceUnits/DolphinDivingAgency/DolphinDivingAgency.wsdl#xpointer(/definitions/portType[@name='DolphinDivingAgencyPortType'])" xlink:type="simple"/>
+        <link xlink:href="../jbiServiceUnits/HotelReception/ClientSurvey.wsdl#xpointer(/definitions/portType[@name='ClientSurveyPortType'])" xlink:type="simple"/>
         <link xlink:href="../jbiServiceUnits/LunchService/JavaDBLunchTable.wsdl#xpointer(/definitions/portType[@name='jdbcPortType'])" xlink:type="simple"/>
         <link xlink:href="../jbiServiceUnits/LunchService/LunchReservation.wsdl#xpointer(/definitions/portType[@name='lunchServicePortType'])" xlink:type="simple"/>
+        <link xlink:href="../jbiServiceUnits/META-INF/HotelReception/src/_references/_projects/ProcessManager/src/ProcessManager.wsdl#xpointer(/definitions/portType[@name='ScubaDivingRequestPortType'])" xlink:type="simple"/>
+        <link xlink:href="../jbiServiceUnits/META-INF/ProcessManager/src/_references/_projects/DolphinDivingAgency/src/DolphinDivingAgency.wsdl#xpointer(/definitions/portType[@name='DolphinDivingAgencyPortType'])" xlink:type="simple"/>
+        <link xlink:href="../jbiServiceUnits/META-INF/ProcessManager/src/_references/_projects/SharkDivingAgency/src/SharkDivingAgency.wsdl#xpointer(/definitions/portType[@name='SharkDivingAgencyPortType'])" xlink:type="simple"/>
+        <link xlink:href="../jbiServiceUnits/META-INF/ProcessManager/src/_references/_projects/WreckAndCaveDivingAgency/src/WreckAndCaveDivingAgency.wsdl#xpointer(/definitions/portType[@name='WreckAndCaveAgencyPortType'])" xlink:type="simple"/>
+        <link xlink:href="../jbiServiceUnits/ProcessManager/ProcessManager.wsdl#xpointer(/definitions/portType[@name='ScubaDivingRequestPortType'])" xlink:type="simple"/>
+        <link xlink:href="../jbiServiceUnits/SharkDivingAgency/SharkDivingAgency.wsdl#xpointer(/definitions/portType[@name='SharkDivingAgencyPortType'])" xlink:type="simple"/>
+        <link xlink:href="../jbiServiceUnits/TaxiService/TaxiRequest.wsdl#xpointer(/definitions/portType[@name='TaxiRequestPortType'])" xlink:type="simple"/>
+        <link xlink:href="../jbiServiceUnits/TaxiService/TaxiService.wsdl#xpointer(/definitions/portType[@name='jdbcPortType'])" xlink:type="simple"/>
+        <link xlink:href="../jbiServiceUnits/WreckAndCaveDivingAgency/WreckAndCaveDivingAgency.wsdl#xpointer(/definitions/portType[@name='WreckAndCaveAgencyPortType'])" xlink:type="simple"/>
     </porttypes>
     <bindings>
+        <link xlink:href="../jbiServiceUnits/HotelReception/ClientSurvey.wsdl#xpointer(/definitions/binding[@name='ClientSurveyBinding'])" xlink:type="simple"/>
         <link xlink:href="../jbiServiceUnits/LunchService/JavaDBLunchTable.wsdl#xpointer(/definitions/binding[@name='binding'])" xlink:type="simple"/>
         <link xlink:href="../jbiServiceUnits/LunchService/LunchReservation.wsdl#xpointer(/definitions/binding[@name='lunchServiceBinding'])" xlink:type="simple"/>
+        <link xlink:href="../jbiServiceUnits/TaxiService/TaxiService.wsdl#xpointer(/definitions/binding[@name='binding'])" xlink:type="simple"/>
     </bindings>
     <services>
+        <link xlink:href="../jbiServiceUnits/HotelReception/ClientSurvey.wsdl#xpointer(/definitions/service[@name='ClientSurveyService'])" xlink:type="simple"/>
         <link xlink:href="../jbiServiceUnits/LunchService/JavaDBLunchTable.wsdl#xpointer(/definitions/service[@name='service'])" xlink:type="simple"/>
         <link xlink:href="../jbiServiceUnits/LunchService/LunchReservation.wsdl#xpointer(/definitions/service[@name='lunchServiceService'])" xlink:type="simple"/>
+        <link xlink:href="../jbiServiceUnits/TaxiService/TaxiService.wsdl#xpointer(/definitions/service[@name='service'])" xlink:type="simple"/>
     </services>
     <regions>
         <region name="WSDL Endpoints" width="150"/>

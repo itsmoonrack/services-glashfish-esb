@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    targetNamespace="http://xml.netbeans.org/schema/hotel"
+    xmlns:tns="http://xml.netbeans.org/schema/hotel"
+    elementFormDefault="qualified">
+    <xsd:element name="ScubaDivingRequest" type="tns:ScubaDivingRequest" xmlns:tns="http://xml.netbeans.org/schema/hotel"/>
+    <xsd:element name="ScubaDivingBooking" type="tns:ScubaDivingBooking" xmlns:tns="http://xml.netbeans.org/schema/hotel"/>
+    <xsd:complexType name="ScubaDivingRequest">
+        <xsd:sequence>
+            <xsd:element name="guestName" type="xsd:string"/>
+            <xsd:element name="roomNumber" type="xsd:int"/>
+            <xsd:element name="requestDate" type="xsd:date"/>
+            <xsd:element name="numberOfDivers" type="xsd:int"/>
+            <xsd:element name="lunchInclued" type="xsd:boolean"/>
+            <xsd:element name="cavesInterest" type="xsd:string"/>
+            <xsd:element name="dolphinsInterest" type="xsd:string"/>
+            <xsd:element name="sharksInterest" type="xsd:string"/>
+            <xsd:element name="wrecksInterest" type="xsd:string"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="ScubaDivingBooking">
+        <xsd:sequence>
+            <xsd:element name="divingBookingID" type="xsd:long"/>
+            <xsd:element name="taxiBookingID" type="xsd:long"/>
+            <xsd:element name="divingAgencyName" type="xsd:string"/>
+            <xsd:element name="divingAgencyAddress" type="xsd:string"/>
+            <xsd:element name="instructorName" type="xsd:string"/>
+            <xsd:element name="divingStartingTime" type="xsd:dateTime"/>
+            <xsd:element name="divingEndTime" type="xsd:dateTime"/>
+            <xsd:element name="taxiDepartureTime" type="xsd:dateTime"/>
+            <xsd:element name="taxiReturnTime" type="xsd:dateTime"/>
+            <xsd:element name="totalPrice" type="xsd:double"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="DivingInterest">
+        <xsd:sequence>
+            <xsd:element name="Caves" type="xsd:string"/>
+            <xsd:element name="Dolphins" type="xsd:string"/>
+            <xsd:element name="Sharks" type="xsd:string"/>
+            <xsd:element name="Wrecks" type="xsd:string"/>
+        </xsd:sequence>
+    </xsd:complexType>
+</xsd:schema>

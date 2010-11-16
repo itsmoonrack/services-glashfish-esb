@@ -102,7 +102,6 @@
     </target>
     <target name="deps-jar-dist" depends="init" unless="${no.dependencies}">
         <ant target="dist_se" inheritall="false" antfile="${project.DolphinDivingAgency}/build.xml"/>
-        <ant target="dist_se" inheritall="false" antfile="${project.HotelReception}/build.xml"/>
         <ant target="dist_se" inheritall="false" antfile="${project.SharkDivingAgency}/build.xml"/>
         <ant target="dist_se" inheritall="false" antfile="${project.WreckAndCaveDivingAgency}/build.xml"/>
     </target>
@@ -136,7 +135,6 @@
     </target>
     <target name="deps-clean" depends="init" unless="${no.dependencies}">
         <ant target="clean" inheritall="false" antfile="${project.DolphinDivingAgency}/build.xml"/>
-        <ant target="clean" inheritall="false" antfile="${project.HotelReception}/build.xml"/>
         <ant target="clean" inheritall="false" antfile="${project.SharkDivingAgency}/build.xml"/>
         <ant target="clean" inheritall="false" antfile="${project.WreckAndCaveDivingAgency}/build.xml"/>
     </target>
