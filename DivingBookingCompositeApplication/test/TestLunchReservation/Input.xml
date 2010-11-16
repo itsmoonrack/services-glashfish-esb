@@ -1,0 +1,12 @@
+<soapenv:Envelope xsi:schemaLocation="http://schemas.xmlsoap.org/soap/envelope/ http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:lun="http://j2ee.netbeans.org/wsdl/LunchService/lunchService" xmlns:lun1="http://xml.netbeans.org/schema/Lunch">
+  <soapenv:Body>
+    <lun:lunchServiceOperation>
+      <LunchBooking>
+        <lun1:guestName>Frédéric Dumont</lun1:guestName>
+        <lun1:roomNumber>3</lun1:roomNumber>
+        <lun1:numberOfLunches>3</lun1:numberOfLunches>
+        <lun1:lunchDate>2010-12-20</lun1:lunchDate>
+      </LunchBooking>
+    </lun:lunchServiceOperation>
+  </soapenv:Body>
+</soapenv:Envelope>
