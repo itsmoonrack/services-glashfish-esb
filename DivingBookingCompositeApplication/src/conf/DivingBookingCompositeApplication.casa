@@ -1,22 +1,23 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<casa xmlns="http://java.sun.com/xml/ns/casa" xmlns:ns1="http://j2ee.netbeans.org/wsdl/LunchService/JavaDBLunchTable" xmlns:ns2="http://j2ee.netbeans.org/wsdl/LunchService/LunchReservation" xmlns:ns3="http://enterprise.netbeans.org/bpel/LunchService/lunchService" xmlns:xlink="http://www.w3.org/2000/xlink">
+<casa xmlns="http://java.sun.com/xml/ns/casa" xmlns:ns1="http://enterprise.netbeans.org/bpel/LunchService/lunchService" xmlns:ns2="http://j2ee.netbeans.org/wsdl/LunchService/LunchReservation" xmlns:ns3="http://j2ee.netbeans.org/wsdl/LunchService/JavaDBLunchTable" xmlns:ns4="http://j2ee.netbeans.org/wsdl/TaxiService/TaxiService" xmlns:xlink="http://www.w3.org/2000/xlink">
     <endpoints>
-        <endpoint endpoint-name="port" interface-name="ns1:jdbcPortType" name="endpoint1" service-name="ns1:service"/>
-        <endpoint endpoint-name="lunchServicePort" interface-name="ns2:lunchServicePortType" name="endpoint2" service-name="ns2:lunchServiceService"/>
-        <endpoint display-name="PartnerLinkLunchService" endpoint-name="lunchServiceRole_myRole" file-path="LunchReservation.bpel" interface-name="ns2:lunchServicePortType" name="endpoint3" process-name="LunchReservation" service-name="ns3:PartnerLinkLunchService"/>
-        <endpoint display-name="Database" endpoint-name="jdbcPortTypeRole_partnerRole" file-path="LunchReservation.bpel" interface-name="ns1:jdbcPortType" name="endpoint4" process-name="LunchReservation" service-name="ns3:Database"/>
+        <endpoint display-name="LunchService" endpoint-name="lunchServiceRole_myRole" file-path="LunchReservation.bpel" interface-name="ns2:lunchServicePortType" name="endpoint1" process-name="LunchReservation" service-name="ns1:LunchService"/>
+        <endpoint display-name="Database" endpoint-name="jdbcPortTypeRole_partnerRole" file-path="LunchReservation.bpel" interface-name="ns3:jdbcPortType" name="endpoint2" process-name="LunchReservation" service-name="ns1:Database"/>
+        <endpoint endpoint-name="port" interface-name="ns3:jdbcPortType" name="endpoint3" service-name="ns3:service"/>
+        <endpoint endpoint-name="port" interface-name="ns4:jdbcPortType" name="endpoint4" service-name="ns4:service"/>
+        <endpoint endpoint-name="lunchServicePort" interface-name="ns2:lunchServicePortType" name="endpoint5" service-name="ns2:lunchServiceService"/>
     </endpoints>
     <service-units>
-        <service-engine-service-unit artifacts-zip="LunchService.jar" component-name="sun-bpel-engine" defined="true" description="Represents this Service Unit" internal="true" name="DivingBookingCompositeApplication-LunchService" unit-name="LunchService" unknown="false" x="151" y="184">
-            <provides endpoint="endpoint3"/>
-            <consumes endpoint="endpoint4"/>
+        <service-engine-service-unit artifacts-zip="LunchService.jar" component-name="sun-bpel-engine" defined="true" description="Represents this Service Unit" internal="true" name="DivingBookingCompositeApplication-LunchService" unit-name="LunchService" unknown="false" x="152" y="99">
+            <provides endpoint="endpoint1"/>
+            <consumes endpoint="endpoint2"/>
         </service-engine-service-unit>
         <binding-component-service-unit artifacts-zip="sun-database-binding.jar" component-name="sun-database-binding" description="Represents this Service Unit" name="DivingBookingCompositeApplication-sun-database-binding" unit-name="sun-database-binding">
             <ports>
                 <port x="67" y="118">
                     <link xlink:href="../jbiServiceUnits/LunchService/JavaDBLunchTable.wsdl#xpointer(/definitions/service[@name='service']/port[@name='port'])" xlink:type="simple"/>
-                    <consumes endpoint="endpoint1"/>
-                    <provides endpoint="endpoint1"/>
+                    <consumes endpoint="endpoint3"/>
+                    <provides endpoint="endpoint3"/>
                 </port>
             </ports>
         </binding-component-service-unit>
@@ -24,8 +25,8 @@
             <ports>
                 <port x="67" y="39">
                     <link xlink:href="../jbiServiceUnits/LunchService/LunchReservation.wsdl#xpointer(/definitions/service[@name='lunchServiceService']/port[@name='lunchServicePort'])" xlink:type="simple"/>
-                    <consumes endpoint="endpoint2"/>
-                    <provides endpoint="endpoint2"/>
+                    <consumes endpoint="endpoint5"/>
+                    <provides endpoint="endpoint5"/>
                 </port>
             </ports>
         </binding-component-service-unit>
@@ -33,8 +34,8 @@
     
     </service-units>
     <connections>
+        <connection consumer="endpoint5" provider="endpoint1" state="unchanged"/>
         <connection consumer="endpoint2" provider="endpoint3" state="unchanged"/>
-        <connection consumer="endpoint4" provider="endpoint1" state="unchanged"/>
     </connections>
     <porttypes>
         <link xlink:href="../jbiServiceUnits/LunchService/JavaDBLunchTable.wsdl#xpointer(/definitions/portType[@name='jdbcPortType'])" xlink:type="simple"/>

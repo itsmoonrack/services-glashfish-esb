@@ -2,7 +2,7 @@
 <definitions name="ClientSurvey" targetNamespace="http://j2ee.netbeans.org/wsdl/HotelReception/ClientSurvey"
     xmlns="http://schemas.xmlsoap.org/wsdl/"
     xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
-    xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://j2ee.netbeans.org/wsdl/HotelReception/ClientSurvey" xmlns:ns="http://xml.netbeans.org/schema/Exchanges" xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:ns0="http://xml.netbeans.org/schema/hotel">
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://j2ee.netbeans.org/wsdl/HotelReception/ClientSurvey" xmlns:ns="http://xml.netbeans.org/schema/Exchanges" xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns0="http://xml.netbeans.org/schema/hotel">
     <types>
         <xsd:schema targetNamespace="http://j2ee.netbeans.org/wsdl/HotelReception/ClientSurvey">
             <xsd:import namespace="http://xml.netbeans.org/schema/hotel" schemaLocation="hotel.xsd"/>
@@ -20,6 +20,23 @@
             <output name="output1" message="tns:ClientSurveyOperationResponse"/>
         </operation>
     </portType>
+    <binding name="ClientSurveyBinding" type="tns:ClientSurveyPortType">
+        <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <operation name="ClientSurveyOperation">
+            <soap:operation/>
+            <input name="input1">
+                <soap:body use="literal"/>
+            </input>
+            <output name="output1">
+                <soap:body use="literal"/>
+            </output>
+        </operation>
+    </binding>
+    <service name="ClientSurveyService">
+        <port name="ClientSurveyPort" binding="tns:ClientSurveyBinding">
+            <soap:address location="http://localhost:18001/ClientSurvey/EndPoint"/>
+        </port>
+    </service>
     <plnk:partnerLinkType name="ClientSurvey">
         <!-- A partner link type is automatically generated when a new port type is added. Partner link types are used by BPEL processes.
 In a BPEL process, a partner link represents the interaction between the BPEL process and a partner service. Each partner link is associated with a partner link type.

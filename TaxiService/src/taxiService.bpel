@@ -16,6 +16,9 @@
         <partnerLink name="ProcessManager" xmlns:tns="http://j2ee.netbeans.org/wsdl/TaxiService/TaxiRequest" partnerLinkType="tns:TaxiRequest" myRole="TaxiRequestPortTypeRole"/>
     </partnerLinks>
     <variables>
+        <variable name="FindOut" xmlns:tns="http://j2ee.netbeans.org/wsdl/TaxiService/TaxiService" messageType="tns:outputMsg"/>
+        <variable name="FindIn" xmlns:tns="http://j2ee.netbeans.org/wsdl/TaxiService/TaxiService" messageType="tns:inputMsg"/>
+        <variable name="TaxiRequestOperationOut" xmlns:tns="http://j2ee.netbeans.org/wsdl/TaxiService/TaxiRequest" messageType="tns:TaxiRequestOperationResponse"/>
         <variable name="InsertOut" xmlns:tns="http://j2ee.netbeans.org/wsdl/TaxiService/TaxiService" messageType="tns:RetMsg"/>
         <variable name="InsertIn" xmlns:tns="http://j2ee.netbeans.org/wsdl/TaxiService/TaxiService" messageType="tns:inputMsg"/>
         <variable name="TaxiRequestOperationIn" xmlns:tns="http://j2ee.netbeans.org/wsdl/TaxiService/TaxiRequest" messageType="tns:TaxiRequestOperationRequest"/>
@@ -25,7 +28,7 @@
         <assign name="assignForDatabase">
             <copy>
                 <from>$TaxiRequestOperationIn.taxiRequest/ns0:numberOfTravelers</from>
-                <to>$InsertIn.part/ns1:TAXI_REQUEST_Record/ns1:NUMBEROFTRAVELERES</to>
+                <to>$InsertIn.part/ns1:TAXI_REQUEST_Record/ns1:NUMBEROFTRAVELERS</to>
             </copy>
             <copy>
                 <from>$TaxiRequestOperationIn.taxiRequest/ns0:hotelName</from>
@@ -33,30 +36,88 @@
             </copy>
             <copy>
                 <from>$TaxiRequestOperationIn.taxiRequest/ns0:destinationAddress</from>
-                <to>$InsertIn.part/ns1:TAXI_REQUEST_Record/ns1:DESTINATIONADRESS</to>
-            </copy>
-            <copy>
-                <from>$TaxiRequestOperationIn.taxiRequest/ns0:numberOfTravelers</from>
-                <to>$InsertIn.part/ns1:TAXI_REQUEST_Record/ns1:NUMBEROFTRAVELERS</to>
-            </copy>
-            <copy>
-                <from>$TaxiRequestOperationIn.taxiRequest/ns0:destinationAddress</from>
                 <to>$InsertIn.part/ns1:TAXI_REQUEST_Record/ns1:DESTINATIONADDRESS</to>
-            </copy>
-            <copy>
-                <from>$TaxiRequestOperationIn.taxiRequest/ns0:departFromHotelTime</from>
-                <to>$InsertIn.part/ns1:TAXI_REQUEST_Record/ns1:DEPARTFROMHOTELTIME</to>
-            </copy>
-            <copy>
-                <from>$TaxiRequestOperationIn.taxiRequest/ns0:arriveAtHotelTime</from>
-                <to>$InsertIn.part/ns1:TAXI_REQUEST_Record/ns1:ARRIVEATHOTELTIME</to>
             </copy>
             <copy>
                 <from>30</from>
                 <to>$InsertIn.part/ns1:TAXI_REQUEST_Record/ns1:PRICE</to>
             </copy>
+            <copy>
+                <from>translate(concat(substring(string(), 1, 11), substring(string(), 12, 2) + 1, substring(string(), 14, 6)), 'T', ' ')</from>
+                <to>$InsertIn.part/ns1:TAXI_REQUEST_Record/ns1:ARRIVEATDESTINATIONTIME</to>
+            </copy>
+            <copy>
+                <from>translate($TaxiRequestOperationIn.taxiRequest/ns0:departFromHotelTime, 'T', ' ')</from>
+                <to>$InsertIn.part/ns1:TAXI_REQUEST_Record/ns1:DEPARTFROMHOTELTIME</to>
+            </copy>
+            <copy>
+                <from>translate($TaxiRequestOperationIn.taxiRequest/ns0:arriveAtHotelTime, 'T', ' ')</from>
+                <to>$InsertIn.part/ns1:TAXI_REQUEST_Record/ns1:ARRIVEATHOTELTIME</to>
+            </copy>
+            <copy>
+                <from>translate(concat(substring(string($TaxiRequestOperationIn.taxiRequest/ns0:arriveAtHotelTime), 1, 11), substring(string($TaxiRequestOperationIn.taxiRequest/ns0:arriveAtHotelTime), 12, 2) - 1, substring(string($TaxiRequestOperationIn.taxiRequest/ns0:arriveAtHotelTime), 14, 6)), 'T', ' ')</from>
+                <to>$InsertIn.part/ns1:TAXI_REQUEST_Record/ns1:DEPARTFROMDESTINATIONTIME</to>
+            </copy>
         </assign>
-        <invoke name="InvokeForInsert" partnerLink="TaxiDatabase" operation="insert" xmlns:tns="http://j2ee.netbeans.org/wsdl/TaxiService/TaxiService" portType="tns:jdbcPortType" inputVariable="InsertIn" outputVariable="InsertOut"/>
+        <invoke name="invokeForInsert" partnerLink="TaxiDatabase" operation="insert" xmlns:tns="http://j2ee.netbeans.org/wsdl/TaxiService/TaxiService" portType="tns:jdbcPortType" inputVariable="InsertIn" outputVariable="InsertOut"/>
+        <assign name="assignForFind">
+            <copy>
+                <from>$InsertIn.part/ns1:TAXI_REQUEST_Record/ns1:REQ_ID</from>
+                <to>$FindIn.part/ns1:TAXI_REQUEST_Record/ns1:REQ_ID</to>
+            </copy>
+            <copy>
+                <from>$InsertIn.part/ns1:TAXI_REQUEST_Record/ns1:ARRIVEATDESTINATIONTIME</from>
+                <to>$FindIn.part/ns1:TAXI_REQUEST_Record/ns1:ARRIVEATDESTINATIONTIME</to>
+            </copy>
+            <copy>
+                <from>$InsertIn.part/ns1:TAXI_REQUEST_Record/ns1:DEPARTFROMDESTINATIONTIME</from>
+                <to>$FindIn.part/ns1:TAXI_REQUEST_Record/ns1:DEPARTFROMDESTINATIONTIME</to>
+            </copy>
+            <copy>
+                <from>$InsertIn.part/ns1:TAXI_REQUEST_Record/ns1:PRICE</from>
+                <to>$FindIn.part/ns1:TAXI_REQUEST_Record/ns1:PRICE</to>
+            </copy>
+            <copy>
+                <from>$InsertIn.part/ns1:TAXI_REQUEST_Record/ns1:DEPARTFROMHOTELTIME</from>
+                <to>$FindIn.part/ns1:TAXI_REQUEST_Record/ns1:DEPARTFROMHOTELTIME</to>
+            </copy>
+            <copy>
+                <from>$InsertIn.part/ns1:TAXI_REQUEST_Record/ns1:ARRIVEATHOTELTIME</from>
+                <to>$FindIn.part/ns1:TAXI_REQUEST_Record/ns1:ARRIVEATHOTELTIME</to>
+            </copy>
+            <copy>
+                <from>$InsertIn.part/ns1:TAXI_REQUEST_Record/ns1:DESTINATIONADDRESS</from>
+                <to>$FindIn.part/ns1:TAXI_REQUEST_Record/ns1:DESTINATIONADDRESS</to>
+            </copy>
+            <copy>
+                <from>$InsertIn.part/ns1:TAXI_REQUEST_Record/ns1:HOTELNAME</from>
+                <to>$FindIn.part/ns1:TAXI_REQUEST_Record/ns1:HOTELNAME</to>
+            </copy>
+            <copy>
+                <from>$InsertIn.part/ns1:TAXI_REQUEST_Record/ns1:NUMBEROFTRAVELERS</from>
+                <to>$FindIn.part/ns1:TAXI_REQUEST_Record/ns1:NUMBEROFTRAVELERS</to>
+            </copy>
+        </assign>
+        <invoke name="invokeForFind" partnerLink="TaxiDatabase" operation="find" xmlns:tns="http://j2ee.netbeans.org/wsdl/TaxiService/TaxiService" portType="tns:jdbcPortType" inputVariable="FindIn" outputVariable="FindOut"/>
+        <assign name="assignForReply">
+            <copy>
+                <from>$FindOut.part/ns1:TAXI_REQUEST_Record/ns1:REQ_ID</from>
+                <to>$TaxiRequestOperationOut.taxiBooking/ns0:taxiBookingID</to>
+            </copy>
+            <copy>
+                <from>$FindOut.part/ns1:TAXI_REQUEST_Record/ns1:ARRIVEATDESTINATIONTIME</from>
+                <to>$TaxiRequestOperationOut.taxiBooking/ns0:arriveAtDestinationTime</to>
+            </copy>
+            <copy>
+                <from>$FindOut.part/ns1:TAXI_REQUEST_Record/ns1:DEPARTFROMDESTINATIONTIME</from>
+                <to>$TaxiRequestOperationOut.taxiBooking/ns0:departFromDestinationTime</to>
+            </copy>
+            <copy>
+                <from>$FindOut.part/ns1:TAXI_REQUEST_Record/ns1:PRICE</from>
+                <to>$TaxiRequestOperationOut.taxiBooking/ns0:price</to>
+            </copy>
+        </assign>
+        <reply name="ReplyToProcessManager" partnerLink="ProcessManager" operation="TaxiRequestOperation" xmlns:tns="http://j2ee.netbeans.org/wsdl/TaxiService/TaxiRequest" portType="tns:TaxiRequestPortType" variable="TaxiRequestOperationOut"/>
     </sequence>
 </process>
 
