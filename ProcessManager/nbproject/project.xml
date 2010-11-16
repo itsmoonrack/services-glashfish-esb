@@ -8,15 +8,7 @@
         </data>
         <references xmlns="http://www.netbeans.org/ns/ant-project-references/1">
             <reference>
-                <foreign-project>DivingBookingService</foreign-project>
-                <artifact-type>jar</artifact-type>
-                <script>build.xml</script>
-                <target>dist_se</target>
-                <clean-target>clean</clean-target>
-                <id>dist_se</id>
-            </reference>
-            <reference>
-                <foreign-project>HotelReception</foreign-project>
+                <foreign-project>DolphinDivingAgency</foreign-project>
                 <artifact-type>jar</artifact-type>
                 <script>build.xml</script>
                 <target>dist_se</target>
@@ -32,7 +24,23 @@
                 <id>dist_se</id>
             </reference>
             <reference>
+                <foreign-project>SharkDivingAgency</foreign-project>
+                <artifact-type>jar</artifact-type>
+                <script>build.xml</script>
+                <target>dist_se</target>
+                <clean-target>clean</clean-target>
+                <id>dist_se</id>
+            </reference>
+            <reference>
                 <foreign-project>TaxiService</foreign-project>
+                <artifact-type>jar</artifact-type>
+                <script>build.xml</script>
+                <target>dist_se</target>
+                <clean-target>clean</clean-target>
+                <id>dist_se</id>
+            </reference>
+            <reference>
+                <foreign-project>WreckAndCaveDivingAgency</foreign-project>
                 <artifact-type>jar</artifact-type>
                 <script>build.xml</script>
                 <target>dist_se</target>

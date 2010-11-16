@@ -7,7 +7,7 @@
         <endpoint display-name="Database" endpoint-name="jdbcPortTypeRole_partnerRole" file-path="LunchReservation.bpel" interface-name="ns1:jdbcPortType" name="endpoint4" process-name="LunchReservation" service-name="ns3:Database"/>
     </endpoints>
     <service-units>
-        <service-engine-service-unit artifacts-zip="LunchService.jar" component-name="sun-bpel-engine" defined="true" description="Represents this Service Unit" internal="true" name="DivingBookingCompositeApplication-LunchService" unit-name="LunchService" unknown="false" x="151" y="99">
+        <service-engine-service-unit artifacts-zip="LunchService.jar" component-name="sun-bpel-engine" defined="true" description="Represents this Service Unit" internal="true" name="DivingBookingCompositeApplication-LunchService" unit-name="LunchService" unknown="false" x="151" y="184">
             <provides endpoint="endpoint3"/>
             <consumes endpoint="endpoint4"/>
         </service-engine-service-unit>
@@ -52,3 +52,4 @@
         <region name="External Modules" width="200"/>
     </regions>
 </casa>
+

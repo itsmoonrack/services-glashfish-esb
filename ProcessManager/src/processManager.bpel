@@ -8,8 +8,43 @@
     xmlns="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
     xmlns:sxt="http://www.sun.com/wsbpel/2.0/process/executable/SUNExtension/Trace" 
     xmlns:sxed="http://www.sun.com/wsbpel/2.0/process/executable/SUNExtension/Editor"
-    xmlns:sxeh="http://www.sun.com/wsbpel/2.0/process/executable/SUNExtension/ErrorHandling">
-
-   <sequence>
-   </sequence>
+    xmlns:sxeh="http://www.sun.com/wsbpel/2.0/process/executable/SUNExtension/ErrorHandling" xmlns:sxed2="http://www.sun.com/wsbpel/2.0/process/executable/SUNExtension/Editor2" xmlns:ns0="http://xml.netbeans.org/schema/hotel" xmlns:ns1="http://j2ee.netbeans.org/wsdl/DivingBookingService/DivingBookingService">
+    <import namespace="http://j2ee.netbeans.org/wsdl/DivingBookingService/DivingBookingService" location="SharkDivingAgency/DivingBookingService.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <import namespace="http://j2ee.netbeans.org/wsdl/DivingBookingService/DivingBookingService" location="WreckAndCaveDivingAgency/DivingBookingService.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <import namespace="http://j2ee.netbeans.org/wsdl/DivingBookingService/DivingBookingService" location="DolphinDivingAgency/DivingBookingService.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <import namespace="http://j2ee.netbeans.org/wsdl/HotelReception/ScubaDivingRequest" location="ProcessManager.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <partnerLinks>
+        <partnerLink name="ProcessManager" xmlns:tns="http://j2ee.netbeans.org/wsdl/HotelReception/ScubaDivingRequest" partnerLinkType="tns:ScubaDivingRequest" myRole="ScubaDivingRequestPortTypeRole"/>
+        <partnerLink name="SharkDivingAgency" partnerLinkType="ns1:DivingBookingService" partnerRole="DivingBookingServicePortTypeRole"/>
+        <partnerLink name="WreckAndCaveDivingAgency" partnerLinkType="ns1:DivingBookingService" partnerRole="DivingBookingServicePortTypeRole"/>
+        <partnerLink name="DolphinDivingAgency" partnerLinkType="ns1:DivingBookingService" partnerRole="DivingBookingServicePortTypeRole"/>
+    </partnerLinks>
+    <variables>
+        <variable name="DivingBooking" xmlns:tns="http://j2ee.netbeans.org/wsdl/DivingBookingService/DivingBookingService" messageType="tns:DivingBookingServiceOperationResponse"/>
+        <variable name="DivingRequest" xmlns:tns="http://j2ee.netbeans.org/wsdl/DivingBookingService/DivingBookingService" messageType="tns:DivingBookingServiceOperationRequest"/>
+        <variable name="ScubaDivingBooking" xmlns:tns="http://j2ee.netbeans.org/wsdl/HotelReception/ScubaDivingRequest" messageType="tns:ScubaDivingRequestOperationResponse"/>
+        <variable name="ScubaDivingRequest" xmlns:tns="http://j2ee.netbeans.org/wsdl/HotelReception/ScubaDivingRequest" messageType="tns:ScubaDivingRequestOperationRequest"/>
+    </variables>
+    <sequence>
+        <receive name="getRequest" createInstance="yes" partnerLink="ProcessManager" operation="ScubaDivingRequestOperation" xmlns:tns="http://j2ee.netbeans.org/wsdl/HotelReception/ScubaDivingRequest" portType="tns:ScubaDivingRequestPortType" variable="ScubaDivingRequest"/>
+        <sequence name="DivingAgencyChoice">
+            <documentation>Invoke the diving agency of preference</documentation>
+            <if name="Shark">
+                <condition>'' != $ScubaDivingRequest.scubaDivingRequest/ns0:sharksInterest</condition>
+                <invoke name="InvokeShark" partnerLink="SharkDivingAgency" operation="DivingBookingServiceOperation" portType="ns1:DivingBookingServicePortType" inputVariable="DivingRequest" outputVariable="DivingBooking"/>
+            </if>
+            <if name="WreckAndCave">
+                <condition>'' != $ScubaDivingRequest.scubaDivingRequest/ns0:cavesInterest or '' != $ScubaDivingRequest.scubaDivingRequest/ns0:wrecksInterest</condition>
+                <invoke name="InvokeWreckAndCave" partnerLink="WreckAndCaveDivingAgency" operation="DivingBookingServiceOperation" portType="ns1:DivingBookingServicePortType" inputVariable="DivingRequest" outputVariable="DivingBooking"/>
+            </if>
+            <if name="Dolphin">
+                <condition>'' != $ScubaDivingRequest.scubaDivingRequest/ns0:dolphinsInterest</condition>
+                <invoke name="InvokeDolphin" partnerLink="DolphinDivingAgency" operation="DivingBookingServiceOperation" portType="ns1:DivingBookingServicePortType" inputVariable="DivingRequest" outputVariable="DivingBooking"/>
+            </if>
+        </sequence>
+        <reply name="bookingReply" partnerLink="ProcessManager" operation="ScubaDivingRequestOperation" xmlns:tns="http://j2ee.netbeans.org/wsdl/HotelReception/ScubaDivingRequest" portType="tns:ScubaDivingRequestPortType" variable="ScubaDivingBooking"/>
+    </sequence>
 </process>
+
+
+

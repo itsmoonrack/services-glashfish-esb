@@ -3,12 +3,12 @@
     <type>org.netbeans.modules.bpel.project</type>
     <configuration>
         <data xmlns="http://www.netbeans.org/ns/j2ee-bpelpro/1">
-            <name>DolphinDivingAgency</name>
+            <name>DivingBookingService</name>
             <minimum-ant-version>1.6</minimum-ant-version>
         </data>
         <references xmlns="http://www.netbeans.org/ns/ant-project-references/1">
             <reference>
-                <foreign-project>DivingBookingService</foreign-project>
+                <foreign-project>SharkDivingAgency</foreign-project>
                 <artifact-type>jar</artifact-type>
                 <script>build.xml</script>
                 <target>dist_se</target>

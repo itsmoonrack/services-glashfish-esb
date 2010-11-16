@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
     <nextCatalog catalog="nbproject/private/cache/retriever/catalog.xml"/>
-    <system systemId="DivingBookingService/Diving.xsd" uri="nb-uri:DivingBookingService#src/Diving.xsd"/>
+    <system systemId="SharkDivingAgency/DivingBookingServiceWrapper.wsdl" uri="nb-uri:SharkDivingAgency#src/DivingBookingServiceWrapper.wsdl"/>
 </catalog>
-
-
-
-
-
 
 
